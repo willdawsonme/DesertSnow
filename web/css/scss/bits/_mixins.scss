@@ -1,0 +1,83 @@
+/* Fonts
+   ========================================================================= */
+@mixin font-stack {
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 400;
+}
+
+@mixin font-stack-headers {
+    font-weight: 300;
+}
+
+/* Media Queries (http://css-tricks.com/media-queries-sass-3-2-and-codekit)
+   ========================================================================= */
+@mixin breakpoint($point) {
+    @if $point == papa-bear {
+        @media (max-width: 60em) { @content; } // 960px
+    }
+
+    @if $point == mama-bear {
+        @media (max-width: 50em) { @content; } // 800px
+    }
+    
+    @if $point == baby-bear {
+        @media (max-width: 30em) { @content; } // 480px
+    }
+}
+
+/* Grids
+   ========================================================================= */
+@mixin grid-item($columns, $span: 1) {
+   $spacing: 8%/$columns;
+
+   width: 100%/$columns*$span - $spacing;
+   float: left;
+   margin-left: $spacing;
+   margin-bottom: $spacing;
+}
+
+@mixin grid-container($columns) {
+    $spacing: 8%/$columns;
+    margin-left: -$spacing;
+}
+
+/* Rem Sizing (http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin)
+   ========================================================================= */
+@function parseInt($n) {
+    @return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+    $px : ();
+    $rem: ();
+    
+    @each $value in $values {
+     
+    @if $value == 0 or $value == auto {
+        $px : append($px , $value);
+        $rem: append($rem, $value);
+    }
+    
+    @else { 
+        $unit: unit($value);
+        $val: parseInt($value);
+        
+        @if $unit == "px" {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 16 + rem));
+        }
+        
+        @if $unit == "rem" {
+        $px : append($px,  ($val * 16 + px));
+        $rem: append($rem, $value);
+        }
+    }
+    }
+    
+    @if $px == $rem {
+        #{$property}: $px;
+    } @else {
+        #{$property}: $px;
+        #{$property}: $rem;
+    }
+}

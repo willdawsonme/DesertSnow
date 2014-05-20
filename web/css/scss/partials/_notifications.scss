@@ -1,0 +1,38 @@
+/* Notifications (Alerts)
+   ========================================================================= */
+.notification {
+    @extend %clearfix;
+    border: 1px solid;
+    padding: 0.5em 0.7em;
+    margin-bottom: 1em;
+    border-radius: $br;
+    
+    &.error {
+        border-color: $bad-color;
+        color: darken($bad-color,10);
+    }
+
+    &.success {
+        border-color: $good-color;
+        color: darken($good-color,10);
+    }
+
+    &.warning {
+        border-color: $warning-color;
+        color: darken($warning-color,10);
+    }
+
+    &.info {
+        border-color: $info-color;
+        color: darken($info-color,10);
+    }
+
+    &.empty {
+        text-align: center;
+        border: 1px dashed #ccc;
+    }
+    
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

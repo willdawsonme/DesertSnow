@@ -1,0 +1,38 @@
+### SublimeText ###
+# Workspace files are user-specific.
+*.sublime-workspace
+
+# Project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText.
+*.sublime-project
+
+# Plugin specific settings aren't necessary
+settings.sublime-javac
+
+
+### Tomcat ###
+# Ant build files
+build.properties
+build.xml
+
+
+### Codekit ###
+*.codekit
+
+
+### Sass ###
+.sass-cache
+
+### Java ###
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Virtual Machine crash logs. See http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

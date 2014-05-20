@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<articles>
+  <article id="94">
+    <author id="1"/>
+    <title>New Article</title>
+    <content>Test!</content>
+    <category>General</category>
+    <publishedDate>2014-05-18T19:28:01Z</publishedDate>
+  </article>
+</articles>

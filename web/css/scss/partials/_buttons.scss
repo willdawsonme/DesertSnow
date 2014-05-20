@@ -1,0 +1,60 @@
+/* Default Button
+   ========================================================================= */
+.btn {
+    @include font-stack;
+    border-radius: $btn-br;
+    background: none;
+    border: 1px solid $dark-grey;
+    color: $dark-grey;
+    display: inline-block;
+    line-height: 1;
+    padding: 1em 1.5em;
+    text-transform: capitalize;
+    outline: none;
+
+    &:hover,
+    &:focus {
+        background: $dark-grey;
+        color: white;
+    }
+
+    &:active {
+
+    }
+}
+
+/* Primary Action Button
+   ========================================================================= */
+.btn-primary {
+    @extend .btn;
+    border-color: $primary-color;
+    color: $primary-color;
+
+    &:hover,
+    &:focus {
+        background: $primary-color;
+    }
+
+    &:active {
+
+    }
+}
+
+/* Link Button
+   ========================================================================= */
+.btn-link {
+    @extend .btn;
+    color: $primary-color;
+    border: none;
+    text-transform: none;
+
+    &:hover,
+    &:focus {
+        background: none;
+        color: darken($primary-color, 10);
+    }
+
+    &:active {
+
+    }
+}

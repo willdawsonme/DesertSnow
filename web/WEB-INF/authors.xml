@@ -1,0 +1,9 @@
+<?xml version="1.0"?><authors>
+  <author id="1">
+    <email>test</email>
+    <password>test</password>
+    <name>Test1</name>
+    <biography>Test</biography>
+    <birth>1995-02-22T00:00:00Z</birth>
+  </author>
+</authors>

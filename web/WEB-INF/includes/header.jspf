@@ -1,0 +1,30 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/desertsnow/css/main.css" />
+    </head>
+    <body>
+        <h1 class="page-title">DS News</h1>
+        <div class="page-wrap">
+            <header>
+                <a href="/desertsnow" class="logo"><jsp:include page="/css/assets/logo.svg"/></a>
+                
+                <div class="user-actions">
+                    <c:choose>
+                        <c:when test="${empty user}">
+                            <a class="btn" href="/desertsnow/login">Login</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="btn" class="dropdown-toggle"><strong>${user.name}</strong><i class="icon-thin-sort-down"></i></a>
+                            <ul class="dropdown">
+                                <li>Your Account</li>
+                                <li>Logout</li>
+                            </ul>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </header>
