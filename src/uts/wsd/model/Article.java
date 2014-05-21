@@ -19,18 +19,16 @@ public class Article implements Serializable {
         this.content = content;
         this.category = category;
 
-        // TODO: Sort this shit out.
-        this.id = someUniqueIdFunction();
         this.publishedDate = new Date();
-    }
-
-    private int someUniqueIdFunction() {
-        Random randomGenerator = new Random();
-        return randomGenerator.nextInt(100);
+        
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Author getAuthor() {

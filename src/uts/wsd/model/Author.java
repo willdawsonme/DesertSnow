@@ -20,18 +20,14 @@ public class Author implements Serializable {
         this.name = name;
         this.biography = biography;
         this.birth = birth;
-
-        // TODO: Sort this shit out.
-        this.id = someUniqueIdFunction();
-    }
-
-    private int someUniqueIdFunction() {
-        Random randomGenerator = new Random();
-        return randomGenerator.nextInt(100);
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {

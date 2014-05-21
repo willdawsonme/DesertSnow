@@ -1,9 +1,10 @@
-<?xml version="1.0"?><authors>
+<?xml version="1.0"?>
+<authors>
   <author id="1">
-    <email>test</email>
-    <password>test</password>
-    <name>Test1</name>
-    <biography>Test</biography>
+    <email>mail@example.com</email>
+    <password>password</password>
+    <name>Desert Snow</name>
+    <biography>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</biography>
     <birth>1995-02-22T00:00:00Z</birth>
   </author>
 </authors>
