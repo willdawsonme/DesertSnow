@@ -6,18 +6,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/desertsnow/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/main.css" />
     </head>
     <body>
-        <h1 class="page-title">DS News</h1>
+        <h1 class="page-title">Rerun</h1>
         <div class="page-wrap">
             <header>
-                <a href="/desertsnow" class="logo"><jsp:include page="/css/assets/logo.svg"/></a>
+                <a href="${pageContext.servletContext.contextPath}" class="logo"><jsp:include page="/css/assets/logo.svg"/></a>
                 
                 <div class="user-actions">
                     <c:choose>
                         <c:when test="${empty user}">
-                            <a class="btn" href="/desertsnow/login">Login</a>
+                            <a class="btn" href="${pageContext.servletContext.contextPath}/login">Login</a>
                         </c:when>
                         <c:otherwise>
                             <a class="btn" class="dropdown-toggle"><strong>${user.name}</strong><i class="icon-thin-sort-down"></i></a>
