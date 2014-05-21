@@ -107,7 +107,7 @@ public class AuthorDAOImpl implements AuthorDAO {
         try {
             String xmlOutput = xStream.toXML(authors);
             FileOutputStream outputStream = new FileOutputStream(filePath);
-            outputStream.write("<?xml version=\"1.0\"?>".getBytes("UTF-8")); //write XML header, as XStream doesn't do that for us
+            outputStream.write("<?xml version=\"1.0\"?>\n".getBytes("UTF-8")); //write XML header, as XStream doesn't do that for us
             byte[] bytes = xmlOutput.getBytes("UTF-8");
             outputStream.write(bytes);
             outputStream.close();

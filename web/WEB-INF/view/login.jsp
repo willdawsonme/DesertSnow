@@ -15,6 +15,6 @@
         </div>
 
         <input type="submit" value="Login" class="btn-primary" />
-        <p class="note">or <a href="register">register</a> now.</p>
+        <span>or <a href="register">register</a> now.</span>
     </form>
 </section>

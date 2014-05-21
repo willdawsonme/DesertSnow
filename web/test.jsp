@@ -10,10 +10,10 @@
     </user>
   </users>
 </c:set>
+<c:import url="xslt.xsl" var="xslt"/>
 
 <section>
-<c:import url="xslt.xsl" var="xslt"/>
-<x:transform xml="${xmltext}" xslt="${xslt}"/>
+    <x:transform xml="${xmltext}" xslt="${xslt}"/>
 </section>
 
 <%@ include file="WEB-INF/includes/footer.jspf" %>
