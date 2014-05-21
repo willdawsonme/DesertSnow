@@ -15,7 +15,7 @@ import java.util.LinkedList;
 
 public class IndexAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ArticleDAO articleDao = new ArticleDAOImpl(request.getContextPath());
+        ArticleDAO articleDao = new ArticleDAOImpl(request.getSession().getServletContext());
         LinkedList<Article> articles = articleDao.findAll();
 
         request.setAttribute("articles", articles);

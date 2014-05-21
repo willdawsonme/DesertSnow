@@ -10,7 +10,7 @@ public class ActionFactory {
 
     static {
         actions = new HashMap<String, Action>();
-        actions.put("GET/", new IndexAction());
+        actions.put("GET/index", new IndexAction());
         actions.put("POST/login", new LoginAction());
         actions.put("POST/register", new RegisterAction());
         actions.put("GET/logout", new LogoutAction());

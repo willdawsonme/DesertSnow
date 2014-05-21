@@ -13,7 +13,7 @@ public class LoginAction implements Action {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        AuthorDAO authorDao = new AuthorDAOImpl(request.getContextPath());
+        AuthorDAO authorDao = new AuthorDAOImpl(request.getSession().getServletContext());
         Author author = authorDao.login(email, password);
         
         if (author != null) {

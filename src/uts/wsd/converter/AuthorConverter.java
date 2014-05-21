@@ -5,6 +5,8 @@ import uts.wsd.model.Author;
 import uts.wsd.dao.AuthorDAO;
 import uts.wsd.dao.AuthorDAOImpl;
 
+import javax.servlet.ServletContext;
+
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;
@@ -12,10 +14,10 @@ import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
 public class AuthorConverter implements Converter {
-        private String contextPath;
+        private ServletContext servletContext;
 
-        public AuthorConverter(String contextPath) {
-                this.contextPath = contextPath;
+        public AuthorConverter(ServletContext servletContext) {
+                this.servletContext = servletContext;
         }
 
         public boolean canConvert(Class clazz) {
@@ -30,7 +32,7 @@ public class AuthorConverter implements Converter {
 
         public Object unmarshal(HierarchicalStreamReader reader,
                 UnmarshallingContext context) {
-            AuthorDAO authorDao = new AuthorDAOImpl(contextPath);
+            AuthorDAO authorDao = new AuthorDAOImpl(servletContext);
             Author author = authorDao.findAuthor(Integer.parseInt(reader.getAttribute("id")));
             return author;
         }

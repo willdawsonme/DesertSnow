@@ -26,7 +26,7 @@ public class RegisterAction implements Action {
             Date birth = dateFormatter.parse(birthString);
             System.out.println(birth);
 
-            AuthorDAO authorDao = new AuthorDAOImpl(request.getContextPath());
+            AuthorDAO authorDao = new AuthorDAOImpl(request.getSession().getServletContext());
             Author author = new Author(email, password, name, biography, birth);
             authorDao.addAuthor(author);
 
