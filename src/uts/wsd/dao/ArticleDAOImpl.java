@@ -7,6 +7,8 @@ import uts.wsd.converter.AuthorConverter;
 
 import java.util.LinkedList;
 
+import javax.servlet.ServletContext;
+
 import java.io.FileReader;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
@@ -21,15 +23,15 @@ public class ArticleDAOImpl implements ArticleDAO {
     private LinkedList<Article> articles;
     private XStream xStream;
 
-    public ArticleDAOImpl(String contextPath) {
-        filePath = contextPath + "/WEB-INF/articles.xml";
+    public ArticleDAOImpl(ServletContext servletContext) {
+        filePath = servletContext.getRealPath("/WEB-INF/articles.xml");
         articles = new LinkedList<Article>();
 
         xStream = new XStream(new DomDriver());
         xStream.alias("articles", LinkedList.class);
         xStream.alias("article", Article.class);
         xStream.useAttributeFor(Article.class, "id");
-        xStream.registerConverter(new AuthorConverter(contextPath));
+        xStream.registerConverter(new AuthorConverter(servletContext));
         xStream.registerConverter(new DateConverter("yyyy-MM-dd'T'HH:mm:ssXXX", null));
     }
 
