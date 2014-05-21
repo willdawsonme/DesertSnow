@@ -1,7 +1,6 @@
 package uts.wsd.controller;
 
 import uts.wsd.model.Author;
-
 import uts.wsd.dao.AuthorDAO;
 import uts.wsd.dao.AuthorDAOImpl;
 
@@ -27,12 +26,12 @@ public class RegisterAction implements Action {
             Date birth = dateFormatter.parse(birthString);
             System.out.println(birth);
 
-            AuthorDAO authorDao = new AuthorDAOImpl(request.getServletContext());
+            AuthorDAO authorDao = new AuthorDAOImpl(request.getContextPath());
             Author author = new Author(email, password, name, biography, birth);
             authorDao.addAuthor(author);
 
             request.getSession().setAttribute("user", author);
-            return "";
+            return "index";
         } else {
             request.setAttribute("errors", "Not all fields were correct. Please try again.");
             return "register";

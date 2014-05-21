@@ -3,16 +3,15 @@ package uts.wsd.dao;
 import uts.wsd.model.Article;
 import uts.wsd.model.Author;
 
-import java.util.LinkedList;
-
 import uts.wsd.converter.AuthorConverter;
+
+import java.util.LinkedList;
 
 import java.io.FileReader;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 
-import javax.servlet.ServletContext;
-
+// XStream
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
@@ -22,15 +21,15 @@ public class ArticleDAOImpl implements ArticleDAO {
     private LinkedList<Article> articles;
     private XStream xStream;
 
-    public ArticleDAOImpl(ServletContext servletContext) {
-        filePath = servletContext.getRealPath("/WEB-INF/articles.xml");
+    public ArticleDAOImpl(String contextPath) {
+        filePath = contextPath + "/WEB-INF/articles.xml";
         articles = new LinkedList<Article>();
 
         xStream = new XStream(new DomDriver());
         xStream.alias("articles", LinkedList.class);
         xStream.alias("article", Article.class);
         xStream.useAttributeFor(Article.class, "id");
-        xStream.registerConverter(new AuthorConverter(servletContext));
+        xStream.registerConverter(new AuthorConverter(contextPath));
         xStream.registerConverter(new DateConverter("yyyy-MM-dd'T'HH:mm:ssXXX", null));
     }
 
@@ -38,6 +37,10 @@ public class ArticleDAOImpl implements ArticleDAO {
     public void addArticle(Article article) {
         load();
 
+        if (articles.size() > 0)
+            article.setId(articles.getLast().getId() + 1);
+        else
+            article.setId(1);
         articles.add(article);
 
         save();
@@ -94,7 +97,7 @@ public class ArticleDAOImpl implements ArticleDAO {
         try {
             String xmlOutput = xStream.toXML(articles);
             FileOutputStream outputStream = new FileOutputStream(filePath);
-            outputStream.write("<?xml version=\"1.0\"?>\n".getBytes("UTF-8")); //write XML header, as XStream doesn't do that for us
+            outputStream.write("<?xml version=\"1.0\"?>\n".getBytes("UTF-8")); // Write XML header, as XStream doesn't do that for us.
             byte[] bytes = xmlOutput.getBytes("UTF-8");
             outputStream.write(bytes);
             outputStream.close();

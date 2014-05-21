@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthorAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         int id = Integer.parseInt(request.getParameter("id"));
-        AuthorDAO authorDao = new AuthorDAOImpl(request.getServletContext());
+        AuthorDAO authorDao = new AuthorDAOImpl(request.getContextPath());
         Author author = authorDao.findAuthor(id);
 
         request.setAttribute("author", author);

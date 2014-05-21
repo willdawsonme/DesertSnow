@@ -13,12 +13,12 @@ public class LoginAction implements Action {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        AuthorDAO authorDao = new AuthorDAOImpl(request.getServletContext());
+        AuthorDAO authorDao = new AuthorDAOImpl(request.getContextPath());
         Author author = authorDao.login(email, password);
         
         if (author != null) {
             request.getSession().setAttribute("user", author);
-            return "";
+            return "index";
         } else {
             request.setAttribute("errors", "Unknown email or password. Please try again.");
             return "login";

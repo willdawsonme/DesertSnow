@@ -22,7 +22,7 @@ public class NewArticleAction implements Action {
         Date publishedDate = new Date();
         Article article = new Article(author, title, content, category);
 
-        ArticleDAO articleDao = new ArticleDAOImpl(request.getServletContext());
+        ArticleDAO articleDao = new ArticleDAOImpl(request.getContextPath());
         articleDao.addArticle(article);
 
         return "index";

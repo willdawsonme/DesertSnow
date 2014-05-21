@@ -8,8 +8,7 @@ import java.io.FileReader;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 
-import javax.servlet.ServletContext;
-
+// XStream
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
@@ -19,8 +18,8 @@ public class AuthorDAOImpl implements AuthorDAO {
     private LinkedList<Author> authors;
     private XStream xStream;
 
-    public AuthorDAOImpl(ServletContext servletContext) {
-        filePath = servletContext.getRealPath("/WEB-INF/authors.xml");
+    public AuthorDAOImpl(String contextPath) {
+        filePath = contextPath + "/WEB-INF/authors.xml";
         authors = new LinkedList<Author>();
 
         xStream = new XStream(new DomDriver());
@@ -34,6 +33,10 @@ public class AuthorDAOImpl implements AuthorDAO {
     public void addAuthor(Author author) {
         load();
 
+        if (authors.size() > 0)
+            author.setId(authors.getLast().getId() + 1);
+        else
+            author.setId(1);
         authors.add(author);
 
         save();
