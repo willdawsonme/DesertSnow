@@ -17,21 +17,19 @@ public class RegisterAction implements Action {
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String biography = request.getParameter("biography");
-
         String birthString = request.getParameter("birth");
 
         if (verifyEmail(email) && verifyPassword(password) && name != "" && biography != "" && birthString != "") {
             SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
             dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
             Date birth = dateFormatter.parse(birthString);
-            System.out.println(birth);
 
             AuthorDAO authorDao = new AuthorDAOImpl(request.getSession().getServletContext());
             Author author = new Author(email, password, name, biography, birth);
             authorDao.addAuthor(author);
 
             request.getSession().setAttribute("user", author);
-            return "index";
+            return "";
         } else {
             request.setAttribute("errors", "Not all fields were correct. Please try again.");
             return "register";

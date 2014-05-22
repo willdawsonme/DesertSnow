@@ -18,9 +18,7 @@ public class ControllerServlet extends HttpServlet {
             String servletPath = request.getServletPath();
             String view = action.execute(request, response);
 
-            servletPath = (servletPath.length() > 1 ? servletPath.substring(1) : "index");
-
-            if (view.equals(servletPath))
+            if (view.equals(servletPath.substring(1)))
                 request.getRequestDispatcher("/WEB-INF/view/" + view + ".jsp").forward(request, response);
             else
                 response.sendRedirect(view); // We'd like to fire redirect in case of a view change as result of the action.

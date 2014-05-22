@@ -25,6 +25,6 @@ public class NewArticleAction implements Action {
         ArticleDAO articleDao = new ArticleDAOImpl(request.getSession().getServletContext());
         articleDao.addArticle(article);
 
-        return "index";
+        return "";
     }
 }

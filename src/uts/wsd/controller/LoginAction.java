@@ -18,7 +18,7 @@ public class LoginAction implements Action {
         
         if (author != null) {
             request.getSession().setAttribute("user", author);
-            return "index";
+            return "";
         } else {
             request.setAttribute("errors", "Unknown email or password. Please try again.");
             return "login";
