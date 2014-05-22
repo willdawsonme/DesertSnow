@@ -20,8 +20,11 @@ public class ActionFactory {
     }
 
     public static Action getAction(HttpServletRequest request) {
-        System.out.println("================================\n" + request.getMethod() + request.getServletPath());
-        Action action = actions.get(request.getMethod() + request.getServletPath());
-        return (action != null ? action : new DefaultAction());
+        String requestString = request.getMethod() + request.getServletPath();
+        Action action = actions.get(requestString);
+        if (action == null) action = new DefaultAction();
+        // Debug
+        System.out.println("RequestMediator: " + requestString + " - " + action.getClass().getSimpleName());
+        return action;
     }
 }

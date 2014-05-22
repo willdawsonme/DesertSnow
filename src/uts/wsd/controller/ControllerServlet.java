@@ -15,21 +15,15 @@ public class ControllerServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Action action = ActionFactory.getAction(request);
-            System.out.println(action);
             String servletPath = request.getServletPath();
             String view = action.execute(request, response);
 
             servletPath = (servletPath.length() > 1 ? servletPath.substring(1) : "index");
 
-            System.out.println(view + " = " + servletPath);
-
-            if (view.equals(servletPath)) {
-                System.out.println("Well, yeah it does.");
-                System.out.println(request.getRequestURL());
+            if (view.equals(servletPath))
                 request.getRequestDispatcher("/WEB-INF/view/" + view + ".jsp").forward(request, response);
-            } else {
+            else
                 response.sendRedirect(view); // We'd like to fire redirect in case of a view change as result of the action.
-            }
         } catch (Exception e) {
             throw new ServletException("Executing action failed.", e);
         }
