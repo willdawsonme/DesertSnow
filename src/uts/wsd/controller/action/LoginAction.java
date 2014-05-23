@@ -20,7 +20,7 @@ public class LoginAction implements Action {
             request.getSession().setAttribute("user", author);
             return "";
         } else {
-            request.setAttribute("errors", "Unknown email or password. Please try again.");
+            request.setAttribute("error", "Unknown email or password. Please try again.");
             return "login";
         }
     }

@@ -509,11 +509,10 @@ input[type=search],
 textarea {
   font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 400;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   width: 100%;
-  padding: 0.5em 0.75em;
+  padding: 1.0em 1.0em;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 4px;
   outline: none;
   color: inherit; }
   input[type=text]:focus,
@@ -540,7 +539,7 @@ textarea {
    ========================================================================= */
 .error .reason {
   margin-top: 0.5em;
-  color: #ce0832; }
+  color: #fc014c; }
 .error input[type=text],
 .error input[type=email],
 .error input[type=phone],
@@ -548,7 +547,7 @@ textarea {
 .error input[type=number],
 .error input[type=search],
 .error textarea {
-  border-color: #ce0832; }
+  border-color: #fc014c; }
 
 /* Notifications (Alerts)
    ========================================================================= */
@@ -558,8 +557,8 @@ textarea {
   margin-bottom: 1em;
   border-radius: 5px; }
   .notification.error {
-    border-color: #ce0832;
-    color: #9d0626; }
+    border-color: #fc014c;
+    color: #c9013d; }
   .notification.success {
     border-color: #5dae1b;
     color: #458214; }
@@ -2154,8 +2153,6 @@ header {
 
 section {
   padding: 3rem 0; }
-  section h1 {
-    margin: 0; }
   section .meta {
     display: block;
     margin: 0 0 1em;

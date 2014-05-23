@@ -1,17 +1,15 @@
 <section class="login">
     <h1>Login</h1>
-    <c:if test="${!empty errors}">
-        <p>${errors}</p>
-    </c:if>
     <form action="login" method="post">
+        <c:if test="${!empty error}">
+            <p class="reason">${error}</p>
+        </c:if>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" />
+            <input type="email" name="email" placeholder="Email" />
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" placeholder="Password" />
         </div>
 
         <input type="submit" value="Login" class="btn-primary" />
