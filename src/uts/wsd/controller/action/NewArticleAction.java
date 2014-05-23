@@ -1,4 +1,4 @@
-package uts.wsd.controller;
+package uts.wsd.controller.action;
 
 import uts.wsd.model.Article;
 import uts.wsd.model.Author;

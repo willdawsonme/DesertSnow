@@ -1,4 +1,4 @@
-package uts.wsd.controller;
+package uts.wsd.controller.action;
 
 import uts.wsd.model.Article;
 import uts.wsd.model.Author;
@@ -11,14 +11,13 @@ import uts.wsd.dao.AuthorDAOImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.LinkedList;
-
-public class IndexAction implements Action {
+public class ArticleAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        int id = Integer.parseInt(request.getParameter("id"));
         ArticleDAO articleDao = new ArticleDAOImpl(request.getSession().getServletContext());
-        LinkedList<Article> articles = articleDao.findAll();
+        Article article = articleDao.findArticle(id);
 
-        request.setAttribute("articles", articles);
-        return "index";
+        request.setAttribute("article", article);
+        return "article";
     }
 }

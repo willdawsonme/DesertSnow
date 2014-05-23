@@ -1,4 +1,4 @@
-package uts.wsd.controller;
+package uts.wsd.controller.action;
 
 import javax.servlet.http.HttpServletRequest;
 
