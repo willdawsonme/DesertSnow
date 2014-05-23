@@ -17,7 +17,7 @@
     <url-pattern>/register</url-pattern>
     <url-pattern>/account</url-pattern>
     <url-pattern>/article</url-pattern>
-    <url-pattern>/newarticle</url-pattern>
+    <url-pattern>/article/new</url-pattern>
     <url-pattern>/author</url-pattern>
   </servlet-mapping>
 

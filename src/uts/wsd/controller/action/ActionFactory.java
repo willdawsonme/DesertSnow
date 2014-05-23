@@ -15,7 +15,7 @@ public class ActionFactory {
         actions.put("POST/register", new RegisterAction());
         actions.put("GET/logout", new LogoutAction());
         actions.put("GET/article", new ArticleAction());
-        actions.put("POST/newarticle", new NewArticleAction());
+        actions.put("POST/article/new", new ArticleNewAction());
         actions.put("GET/author", new AuthorAction());
     }
 
