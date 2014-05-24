@@ -2,6 +2,10 @@
    ========================================================================= */
 .form-group {
     margin-bottom: 1em;
+
+    [class^="btn"] {
+        margin-top: 1em;
+    }
 }
 
 label {
@@ -35,6 +39,7 @@ textarea {
 
 textarea {
     max-width: 100%;
+    line-height: 1.5;
 }
 
 input[type=radio] {

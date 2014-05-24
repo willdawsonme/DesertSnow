@@ -21,6 +21,11 @@
     &:active {
 
     }
+
+    &.full {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* Primary Action Button
@@ -73,6 +78,6 @@
 
 /* Small Button
    ========================================================================= */
-.btn-small {
+.btn-small, [class^=".btn"].small {
     font-size: 0.85em;
 }
