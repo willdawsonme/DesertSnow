@@ -12,12 +12,14 @@ public class Article implements Serializable {
     private String content;
     private String category;
     private Date publishedDate;
+    private String visibility;
 
-    public Article(Author author, String title, String content, String category) {
+    public Article(Author author, String title, String content, String category, String visibility) {
         this.author = author;
         this.title = title;
         this.content = content;
         this.category = category;
+        this.visibility = visibility;
 
         this.publishedDate = new Date();
         
@@ -69,5 +71,9 @@ public class Article implements Serializable {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public String getVisibility() {
+        return visibility;
     }
 }
