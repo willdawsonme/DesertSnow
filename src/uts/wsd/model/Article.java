@@ -9,14 +9,16 @@ public class Article implements Serializable {
     private int id;
     private Author author;
     private String title;
+	private String preview;
     private String content;
     private String category;
     private Date publishedDate;
     private String visibility;
 
-    public Article(Author author, String title, String content, String category, String visibility) {
+    public Article(Author author, String title, String preview, String content, String category, String visibility) {
         this.author = author;
         this.title = title;
+		this.preview = preview;
         this.content = content;
         this.category = category;
         this.visibility = visibility;
@@ -47,6 +49,14 @@ public class Article implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+	
+	public String getPreview() {
+        return preview;
+    }
+
+    public void getPreview(String preview) {
+        this.preview = preview;
     }
 
     public String getContent() {

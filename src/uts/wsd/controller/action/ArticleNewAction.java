@@ -22,7 +22,7 @@ public class ArticleNewAction implements Action {
             Author author = (Author)request.getSession().getAttribute("user");
 
             ArticleDAO articleDao = new ArticleDAOImpl(request.getSession().getServletContext());
-            Article article = new Article(author, param("title"), param("content"), param("category"), param("visibility"));
+            Article article = new Article(author, param("title"), param("preview"), param("content"), param("category"), param("visibility"));
             articleDao.addArticle(article);
             
             return "article?id=" + article.getId();
