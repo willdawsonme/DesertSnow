@@ -18,17 +18,28 @@ public class AuthorAction implements Action {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         this.request = request;
+        try {
+            Author user = (Author)request.getSession().getAttribute("user");
+            int id = Integer.parseInt(request.getParameter("id"));
+            
+            AuthorDAO authorDao = new AuthorDAOImpl(request.getSession().getServletContext());
+            Author author = authorDao.findAuthor(id);
 
-        Author user = (Author)request.getSession().getAttribute("user");
-        int id = Integer.parseInt(request.getParameter("id"));
-        
-        AuthorDAO authorDao = new AuthorDAOImpl(request.getSession().getServletContext());
-        Author author = authorDao.findAuthor(id);
-        
-        LinkedList<Article> articles = visibleArticles(id, user);
+            if (author == null)
+                request.setAttribute("error", "There is no author with that ID.");
+            else {
+                LinkedList<Article> articles = visibleArticles(id, user);
 
-        request.setAttribute("author", author);
-        request.setAttribute("articles", (articles.size() > 3 ? articles.subList(0, 3) : articles));
+                request.setAttribute("author", author);
+                request.setAttribute("articles", (articles.size() > 3 ? articles.subList(0, 3) : articles));
+            }
+        } catch (java.lang.NumberFormatException e) {
+            request.setAttribute("error", "You must specify an integer ID to view an author.");
+        } catch (Exception e) {
+            request.setAttribute("error", "An error occured. Please try again.");
+            System.out.println(e.getStackTrace());
+        }
+
         return "author";
     }
 

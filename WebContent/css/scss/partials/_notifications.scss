@@ -6,6 +6,7 @@
     padding: 0.5em 0.7em;
     margin-bottom: 1em;
     border-radius: $br;
+    text-align: center;
     
     &.error {
         border-color: $bad-color;
@@ -30,6 +31,10 @@
     &.empty {
         text-align: center;
         border: 1px dashed #ccc;
+    }
+
+    p {
+        margin-top: 0;
     }
     
     p:last-child {

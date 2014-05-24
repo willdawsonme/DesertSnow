@@ -13,24 +13,39 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ArticleAction implements Action {
     HttpServletRequest request;
+
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         this.request = request;
 
-        Author user = (Author)request.getSession().getAttribute("user");
-        int id = Integer.parseInt(request.getParameter("id"));
-        
-        Article article = visibleArticle(id, user);
+        try {
+            Author user = (Author)request.getSession().getAttribute("user");
+            int id = Integer.parseInt(param("id"));
+            Article article = visibleArticle(id, user);
 
-        request.setAttribute("article", article);
+            if (article == null)
+                request.setAttribute("error", "There is no article with that ID.");
+            else
+                request.setAttribute("article", article);
+        } catch (java.lang.NumberFormatException e) {
+            request.setAttribute("error", "You must specify an integer ID to view an article.");
+        } catch (Exception e) {
+            request.setAttribute("error", "An error occured. Please try again.");
+            System.out.println(e.getMessage());
+        }
+
         return "article";
     }
 
     private Article visibleArticle(int id, Author user) {
         ArticleDAO articleDao = new ArticleDAOImpl(request.getSession().getServletContext());
         Article article = articleDao.findArticle(id);
-        if (article.getVisibility().equals("authors") && user == null)
-            article = null;
+        if (article == null || (article.getVisibility().equals("authors") && user == null))
+            return null;
 
         return article;
+    }
+
+    private String param(String key) {
+        return request.getParameter(key);
     }
 }

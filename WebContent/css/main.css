@@ -603,7 +603,8 @@ input[type=radio] {
   border: 1px solid;
   padding: 0.5em 0.7em;
   margin-bottom: 1em;
-  border-radius: 5px; }
+  border-radius: 5px;
+  text-align: center; }
   .notification.error {
     border-color: #fc014c;
     color: #c9013d; }
@@ -611,14 +612,16 @@ input[type=radio] {
     border-color: #5dae1b;
     color: #458214; }
   .notification.warning {
-    border-color: #dea110;
-    color: #ae7e0d; }
+    border-color: #e76b00;
+    color: #b45300; }
   .notification.info {
     border-color: #10bade;
     color: #0d92ae; }
   .notification.empty {
     text-align: center;
     border: 1px dashed #ccc; }
+  .notification p {
+    margin-top: 0; }
   .notification p:last-child {
     margin-bottom: 0; }
 

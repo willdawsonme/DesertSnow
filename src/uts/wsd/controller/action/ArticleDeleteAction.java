@@ -26,6 +26,6 @@ public class ArticleDeleteAction implements Action {
         if (article.getAuthor().getId() == user.getId())
             articleDao.deleteArticle(article);
 
-        return "";
+        return "account";
     }
 }

@@ -1,7 +1,9 @@
 <section>
     <c:choose>
-        <c:when test="${empty article}">
-            <p>Sorry, there is no article available with that ID.</p>
+        <c:when test="${!empty error}">
+            <div class="notification error">
+                <p>${error}</p>
+            </div>
         </c:when>
         <c:otherwise>
             <article>
