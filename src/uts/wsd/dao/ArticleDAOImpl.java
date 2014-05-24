@@ -89,13 +89,12 @@ public class ArticleDAOImpl implements ArticleDAO {
     public LinkedList<Article> findByAuthor(int id) {
         load();
 
-        LinkedList<Article> authorArticles = new LinkedList<Article>();
-        for (Article article : articles) {
+        LinkedList<Article> articles = new LinkedList<Article>();
+        for (Article article : this.articles)
             if (article.getAuthor().getId() == id)
-                authorArticles.add(article);
-        }
+                articles.add(article);
 
-        return authorArticles;
+        return articles;
     }
 
     // File IO
