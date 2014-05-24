@@ -26,9 +26,9 @@ public class LoginFilter implements Filter {
         if (!authorised(httpRequest)) {
             // Send the following unauthorised requests to Login.
             switch (requestString) {
-                case "GET/account"     :
-                case "GET/newarticle"  :
-                case "POST/newarticle" :
+                case "GET/account"       :
+                case "GET/article/delete":
+                case "POST/article/new"  :
                     httpResponse.sendRedirect("login");
                     return;
             }
