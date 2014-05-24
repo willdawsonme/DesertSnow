@@ -7,8 +7,8 @@
         </div>
         <div class="form-group${!empty errors['content'] ? ' error' : ''}">
             <textarea name="content" rows="10" placeholder="Content">${param['content']}</textarea>
-            <p class="reason">${errors['content']}</p>
             <a class="btn-primary full small" href="" style="font-size: 0.85em; margin-top: 10px;">Generate Lipsum</a>
+            <p class="reason">${errors['content']}</p>
         </div>
         <div class="form-group${!empty errors['category'] ? ' error' : ''}">
             <input type="text" name="category" value="${param['category']}" placeholder="Category" />

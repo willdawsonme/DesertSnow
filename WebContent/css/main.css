@@ -310,14 +310,14 @@ body {
   color: #777; }
 
 a {
-  color: #fc014c;
+  color: #5ab894;
   transition: all .2s linear; }
   p a {
     border-bottom: 1px solid #ddd; }
     p a:hover {
       border-bottom: 1px solid #fff; }
   a:hover, a:focus {
-    color: #c9013d; }
+    color: #439c7a; }
   a:active {
     color: black; }
 
@@ -385,7 +385,7 @@ strong {
 blockquote {
   margin: 0 0 25px;
   padding: 1em 1em 1em 1.5em;
-  border-left: 2px solid #fc014c;
+  border-left: 2px solid #5ab894;
   background: whitesmoke;
   font-size: 17.6px;
   font-size: 1.1rem;
@@ -499,10 +499,10 @@ object {
 /* Primary Action Button
    ========================================================================= */
 .btn-primary {
-  border-color: #fc014c;
-  color: #fc014c; }
+  border-color: #5ab894;
+  color: #5ab894; }
   .btn-primary:hover, .btn-primary:focus {
-    background: #fc014c; }
+    background: #5ab894; }
 
 /* Light Button */
 .btn-light {
@@ -510,16 +510,16 @@ object {
   color: white; }
   .btn-light:hover, .btn-light:focus {
     background: white;
-    color: #fc014c; }
+    color: #5ab894; }
 
 /* Link Button
    ========================================================================= */
 .btn-link {
-  color: #fc014c;
+  color: #5ab894;
   border: none; }
   .btn-link:hover, .btn-link:focus {
     background: none;
-    color: #c9013d; }
+    color: #439c7a; }
 
 /* Small Button
    ========================================================================= */
@@ -562,7 +562,7 @@ textarea {
   input[type=search]:focus,
   input[type=radio]:focus,
   textarea:focus {
-    border-color: #fc014c; }
+    border-color: #5ab894; }
 
 textarea {
   max-width: 100%;
@@ -2183,7 +2183,7 @@ header {
   position: relative;
   margin: 0 -100%;
   padding: 20px 100%;
-  background: #fc014c; }
+  background: #5ab894; }
   header .logo {
     display: block;
     float: left;
@@ -2206,12 +2206,12 @@ header {
       visibility: visible; }
     .user-actions .user-toggle:hover .user {
       background: white;
-      color: #fc014c; }
+      color: #5ab894; }
   .user-actions .dropdown {
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    background: #fc014c;
+    background: #5ab894;
     color: white;
     list-style: none;
     width: 100%;
@@ -2239,7 +2239,7 @@ header {
     float: right; }
     .user-actions .btn.write, .user-actions .write.btn-primary, .user-actions .write.btn-light, .user-actions .write.btn-link {
       background: white;
-      color: #fc014c;
+      color: #5ab894;
       margin-left: 1rem; }
     .user-actions .btn.user, .user-actions .user.btn-primary, .user-actions .user.btn-light, .user-actions .user.btn-link {
       border: none; }
