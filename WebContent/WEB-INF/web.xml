@@ -18,6 +18,7 @@
     <url-pattern>/account</url-pattern>
     <url-pattern>/article</url-pattern>
     <url-pattern>/article/new</url-pattern>
+    <url-pattern>/article/delete</url-pattern>
     <url-pattern>/author</url-pattern>
   </servlet-mapping>
 
