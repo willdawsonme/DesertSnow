@@ -6,6 +6,8 @@ import uts.wsd.model.Author;
 import uts.wsd.converter.AuthorConverter;
 
 import java.util.LinkedList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.servlet.ServletContext;
 
@@ -83,14 +85,23 @@ public class ArticleDAOImpl implements ArticleDAO {
     // Searching
     public LinkedList<Article> findAll() {
         load();
-        return articles;
+
+        LinkedList<Article> articlesSorted = (LinkedList<Article>)articles.clone();
+        Collections.sort(articlesSorted, new Comparator<Article>(){
+           @Override
+           public int compare(Article o1, Article o2){
+                return o2.getPublishedDate().compareTo(o1.getPublishedDate());
+           }
+        });
+
+        return articlesSorted;
     }
 
     public LinkedList<Article> findByAuthor(int id) {
         load();
 
         LinkedList<Article> articles = new LinkedList<Article>();
-        for (Article article : this.articles)
+        for (Article article : findAll())
             if (article.getAuthor().getId() == id)
                 articles.add(article);
 
