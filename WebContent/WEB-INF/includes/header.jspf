@@ -17,14 +17,17 @@
                 <div class="user-actions">
                     <c:choose>
                         <c:when test="${empty user}">
-                            <a class="btn" href="${pageContext.servletContext.contextPath}/login">Login</a>
+                            <a class="btn-light" href="${pageContext.servletContext.contextPath}/login">Login</a>
                         </c:when>
                         <c:otherwise>
-                            <a class="btn" class="dropdown-toggle"><strong>${user.name}</strong><i class="icon-thin-sort-down"></i></a>
-                            <ul class="dropdown">
-                                <li>Your Account</li>
-                                <li>Logout</li>
-                            </ul>
+                            <a class="btn-light write" href="${pageContext.servletContext.contextPath}/article/new">Write</a>
+                            <div class="user-toggle">    
+                                <a class="btn-light user">${user.name}<i class="icon-thin-sort-down"></i></a>
+                                <ul class="dropdown">
+                                    <li><a href="${pageContext.servletContext.contextPath}/account">Account</a></li>
+                                    <li><a href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
+                                </ul>
+                            </div>
                         </c:otherwise>
                     </c:choose>
                 </div>

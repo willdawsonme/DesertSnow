@@ -86,6 +86,18 @@ public class ArticleDAOImpl implements ArticleDAO {
         return articles;
     }
 
+    public LinkedList<Article> findByAuthor(int id) {
+        load();
+
+        LinkedList<Article> authorArticles = new LinkedList<Article>();
+        for (Article article : articles) {
+            if (article.getAuthor().getId() == id)
+                authorArticles.add(article);
+        }
+
+        return authorArticles;
+    }
+
     // File IO
     private void load() {
         try {

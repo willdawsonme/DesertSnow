@@ -17,6 +17,7 @@ public class ActionFactory {
         actions.put("GET/article", new ArticleAction());
         actions.put("POST/article/new", new ArticleNewAction());
         actions.put("GET/author", new AuthorAction());
+        actions.put("GET/account", new AccountAction());
     }
 
     public static Action getAction(HttpServletRequest request) {

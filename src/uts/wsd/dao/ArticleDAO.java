@@ -16,4 +16,6 @@ public interface ArticleDAO {
 
     // Searching
     public LinkedList<Article> findAll();
+
+    public LinkedList<Article> findByAuthor(int id);
 }

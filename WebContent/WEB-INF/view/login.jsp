@@ -5,7 +5,7 @@
             <p class="reason">${error}</p>
         </c:if>
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email" />
+            <input type="email" name="email" placeholder="Email" value="${param['email']}"/>
         </div>
 
         <div class="form-group">

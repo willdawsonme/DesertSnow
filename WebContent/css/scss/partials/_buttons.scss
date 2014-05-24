@@ -40,13 +40,25 @@
     }
 }
 
+/* Light Button */
+.btn-light {
+    @extend .btn;
+    border-color: white;
+    color: white;
+
+    &:hover,
+    &:focus {
+        background: white;
+        color: $primary-color;
+    }
+}
+
 /* Link Button
    ========================================================================= */
 .btn-link {
     @extend .btn;
     color: $primary-color;
     border: none;
-    text-transform: none;
 
     &:hover,
     &:focus {
@@ -57,4 +69,10 @@
     &:active {
 
     }
+}
+
+/* Small Button
+   ========================================================================= */
+.btn-small {
+    font-size: 0.85em;
 }

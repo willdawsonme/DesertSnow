@@ -1,6 +1,8 @@
-            <footer>
-                <p>&copy; 2014 Rerun</p>
-            </footer>
         </div>
+        <footer>
+            <div class="page-wrap">
+                <p>&copy; 2014 Rerun</p>
+            </div>
+        </footer>
     </body>
 </html>

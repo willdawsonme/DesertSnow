@@ -4,7 +4,8 @@ html, body {
 
 .page-wrap {
     width: 85%;
-    margin: 0 7.5%;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .page-title {
@@ -15,7 +16,7 @@ header {
     @extend %clearfix;
     position: relative;
     margin: 0 -100%;
-    padding: $padding 100%;
+    padding: 20px 100%;
     background: $primary-color;
 
     .logo {
@@ -32,52 +33,141 @@ header {
             color: rgba(255,255,255,0.75);
         }
     }
+}
 
-    .user-actions {
-        float: right;
-        height: 4rem;
-        font-size: 0.85rem;
+.user-actions {
+    float: right;
+    height: 4rem;
+    font-size: 0.85rem;
 
-        .btn {
-            margin: 0.5rem 0 0 1rem;
-            padding: 0 1rem;
-            height: 3rem;
-            line-height: 3rem;
-            border-color: white;
-            float: right;
-            color: white;
-            text-align: center;
+    .user-toggle {
+        display: inline-block;
+        position: relative;
+
+        &:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .btn:hover {
+        &:hover .user {
             background: white;
             color: $primary-color;
         }
+    }
 
-        [class^="icon-thin-"] {
+    .dropdown {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        background: $primary-color;
+        color: white;
+        list-style: none;
+        width: 100%;
+        right: 0;
+        top: 63px;
+        padding: 29px 0 0;
+        margin: 0;
+        border-bottom-right-radius: $btn-br;
+        border-bottom-left-radius: $btn-br;
+        line-height: 1;
+        transition: opacity .2s linear;
+
+        a {
+            display: block;
+            padding: 1em;
+            width: 100%;
+            margin: 0;
+            color: white;
+
+            &:hover {
+                background: rgba(255,255,255,0.25);
+            }
+        }
+    }
+
+    .btn {
+        margin: 0.5rem 0 0 0;
+        padding: 0 1rem;
+        line-height: 3rem;
+        height: 3rem;
+        float: right;
+
+        &.write {
+            background: white;
+            color: $primary-color;
+            margin-left: 1rem;
+        }
+
+        &.user {
+            border: none;
+        }
+
+        [class^="icon-"] {
             margin-left: 7px;
         }
     }
 }
 
-.dropdown {
-    position: absolute;
-    margin: 0; padding: 0;
-    list-style: none;
-}
-
 section {
+    @extend %clearfix;
     padding: $padding 0;
-
-    .meta {
-        display: block;
-        margin: 0 0 1em;
-        font-size: 0.85rem;
-    }
 }
 
 article {
-    margin: 0 0 $padding;
+    @extend %clearfix;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.article-excerpt {
+    .excerpt {
+        margin-bottom: 0;
+    }
+
+    &:last-child:after {
+        display: none;
+    }
+
+    &:after {
+        color: #ddd;
+        content: '\2666';
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        margin: $padding 0;
+    }
+}
+
+.meta-block {
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    margin: 1em 0;
+
+    .meta {
+        font-size: 0.85em;
+    }
+
+    .meta-header {
+        @extend .meta;
+        display: block;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 1em 0;
+    }
+
+    &.half {
+        width: 50%;
+        float: left;
+        padding: 0 $padding 0 0;
+
+        @include breakpoint(baby-bear) {
+            width: 100%;
+            padding: 0;
+        }
+         
+    }
 }
 
 .login, .register {
@@ -89,6 +179,6 @@ article {
 footer {
     padding: $padding 0;
     text-align: center;
-    font-size: 0.8rem;
-    border-top: 1px solid $light-grey;
+    font-size: 0.85rem;
+    background: #eee;
 }

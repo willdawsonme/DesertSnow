@@ -7,6 +7,7 @@
 label {
     display: block;
     margin-bottom: 0.5em;
+    font-weight: 600;
 }
 
 input[type=text],
@@ -15,6 +16,7 @@ input[type=phone],
 input[type=password],
 input[type=number],
 input[type=search],
+input[type=radio],
 textarea {
     @include font-stack;
 
@@ -29,6 +31,15 @@ textarea {
     &:focus {
         border-color: $primary-color;
     }
+}
+
+textarea {
+    max-width: 100%;
+}
+
+input[type=radio] {
+    width: auto;
+    margin-right: 0.5em;
 }
 
 /* Notes (paragraph below inputs)
