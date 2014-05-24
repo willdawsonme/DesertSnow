@@ -16,12 +16,12 @@
    ========================================================================= */
 /* Rem Sizing (http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin)
    ========================================================================= */
-.notification:before, header:before, section:before, article:before, .notification:after, header:after, section:after, article:after {
+.notification:before, header:before, section:before, article:before, footer:before, .notification:after, header:after, section:after, article:after, footer:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden; }
-.notification:after, header:after, section:after, article:after {
+.notification:after, header:after, section:after, article:after, footer:after {
   clear: both; }
 
 /* =========================================================================   
@@ -329,6 +329,8 @@ a {
     margin-right: 5px;
     font-size: 1rem;
     line-height: 0.85rem; }
+  .meta a, .meta-block .meta-header a {
+    font-weight: 600; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
@@ -458,12 +460,12 @@ img {
   top: -9999px;
   left: -9999px; }
 
-.notification:before, header:before, section:before, article:before, .notification:after, header:after, section:after, article:after {
+.notification:before, header:before, section:before, article:before, footer:before, .notification:after, header:after, section:after, article:after, footer:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden; }
-.notification:after, header:after, section:after, article:after {
+.notification:after, header:after, section:after, article:after, footer:after {
   clear: both; }
 
 img,
@@ -490,6 +492,9 @@ object {
   .btn:hover, .btn-primary:hover, .btn-light:hover, .btn-link:hover, .btn:focus, .btn-primary:focus, .btn-light:focus, .btn-link:focus {
     background: #aaaaaa;
     color: white; }
+  .btn.full, .full.btn-primary, .full.btn-light, .full.btn-link {
+    width: 100%;
+    text-align: center; }
 
 /* Primary Action Button
    ========================================================================= */
@@ -518,13 +523,15 @@ object {
 
 /* Small Button
    ========================================================================= */
-.btn-small {
+.btn-small, [class^=".btn"].small {
   font-size: 0.85em; }
 
 /* Main Elements
    ========================================================================= */
 .form-group {
   margin-bottom: 1em; }
+  .form-group [class^="btn"] {
+    margin-top: 1em; }
 
 label {
   display: block;
@@ -558,7 +565,8 @@ textarea {
     border-color: #fc014c; }
 
 textarea {
-  max-width: 100%; }
+  max-width: 100%;
+  line-height: 1.5; }
 
 input[type=radio] {
   width: auto;
@@ -2182,7 +2190,7 @@ header {
     height: 4rem; }
     header .logo svg.logo {
       height: 4rem;
-      width: 12.5rem; }
+      width: 9rem; }
     header .logo svg.logo:hover {
       color: rgba(255, 255, 255, 0.75); }
 
@@ -2244,17 +2252,16 @@ section {
 article p:last-child {
   margin-bottom: 0; }
 
-.article-excerpt .excerpt {
-  margin-bottom: 0; }
-.article-excerpt:last-child:after {
-  display: none; }
-.article-excerpt:after {
-  color: #ddd;
-  content: '\2666';
-  display: block;
-  text-align: center;
-  font-size: 16px;
-  margin: 3rem 0; }
+.article-excerpt {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem; }
+  .article-excerpt .excerpt {
+    margin-bottom: 0; }
+  .article-excerpt:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none; }
 
 .meta-block {
   border-top: 1px solid #eee;
@@ -2283,9 +2290,21 @@ article p:last-child {
 
 footer {
   padding: 3rem 0;
-  text-align: center;
   font-size: 0.85rem;
   background: #eee; }
+  footer ul.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 20%;
+    float: left; }
+    footer ul.footer-nav li {
+      font-weight: 600; }
+    footer ul.footer-nav a {
+      font-weight: 300;
+      color: inherit; }
+  footer .copyright {
+    float: right; }
 
 /* IE 6, 7, 8
    ========================================================================= */

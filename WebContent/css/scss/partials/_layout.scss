@@ -26,7 +26,7 @@ header {
 
         svg.logo {
             height: 4rem; // 64px;
-            width: 12.5rem; // 200px;
+            width: 9rem; // 200px;
         }
 
         svg.logo:hover {
@@ -122,21 +122,17 @@ article {
 }
 
 .article-excerpt {
+    border-bottom: 1px solid #eee;
+    padding-bottom: $padding;
+    margin-bottom: $padding;
     .excerpt {
         margin-bottom: 0;
     }
 
-    &:last-child:after {
-        display: none;
-    }
-
-    &:after {
-        color: #ddd;
-        content: '\2666';
-        display: block;
-        text-align: center;
-        font-size: 16px;
-        margin: $padding 0;
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
     }
 }
 
@@ -177,8 +173,31 @@ article {
 }
 
 footer {
+    @extend %clearfix;
+
     padding: $padding 0;
-    text-align: center;
     font-size: 0.85rem;
     background: #eee;
+
+    ul.footer-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        width: 20%;
+        float: left;
+
+        li {
+            font-weight: 600;
+        }
+
+        a {
+            font-weight: 300;
+            color: inherit;
+        }
+    }
+
+    .copyright {
+        float: right;
+    }
 }

@@ -16,9 +16,9 @@
     </div>
     <div class="meta-block">
         <span class="meta-header">Details</span>
-        <p><strong>Birth</strong> <fmt:formatDate type="date" 
+        <p><strong>Born on</strong> <fmt:formatDate type="date" 
             dateStyle="long"
-            value="${user.birth}" /></p>
-        <p><strong>Biography</strong> ${user.biography}</p>
+            value="${user.birth}" />.<br>
+        ${user.biography}</p>
     </div>
 </section>

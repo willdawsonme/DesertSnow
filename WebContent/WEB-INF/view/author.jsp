@@ -3,10 +3,9 @@
     <p>${author.biography}</p>
     <div class="meta-block half">
         <span class="meta-header">Details</span>
-        <h3>Birth</h3>
-        <p><fmt:formatDate type="date" 
+        <p><strong>Born on</strong> <fmt:formatDate type="date" 
             dateStyle="long"
-            value="${author.birth}" /></p>
+            value="${author.birth}" />.</p>
     </div>
     <div class="meta-block half">
         <span class="meta-header">Articles</span>

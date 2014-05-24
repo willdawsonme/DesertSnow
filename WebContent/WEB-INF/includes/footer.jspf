@@ -1,7 +1,34 @@
         </div>
         <footer>
             <div class="page-wrap">
-                <p>&copy; 2014 Rerun</p>
+                <ul class="footer-nav">
+                    <li>Rerun</li>
+                    <c:choose>
+                        <c:when test="${!empty user}">
+                            <li><a href="${pageContext.servletContext.contextPath}/account">Account</a></li>
+                            <li><a href="${pageContext.servletContext.contextPath}/author?id=${user.id}">Profile</a></li>
+                            <li><a href="${pageContext.servletContext.contextPath}/article/new">Write</a></li>
+                            <li><a href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.servletContext.contextPath}/login">Login</a></li>
+                            <li><a href="${pageContext.servletContext.contextPath}/register">Register</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+                <ul class="footer-nav">
+                    <li>About Us</li>
+                    <li><a href="${pageContext.servletContext.contextPath}/">Our Team</a></li>
+                    <li><a href="${pageContext.servletContext.contextPath}/">Jobs</a></li>
+                </ul>
+                <ul class="footer-nav">
+                    <li>Web Services</li>
+                    <li><a href="${pageContext.servletContext.contextPath}/rest">REST</a></li>
+                    <li><a href="${pageContext.servletContext.contextPath}/soap">SOAP</a></li>
+                </ul>
+                <div class="copyright">
+                    Copyright 2014 Rerun
+                </div>
             </div>
         </footer>
     </body>
