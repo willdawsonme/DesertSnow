@@ -89,11 +89,9 @@ public class AuthorDAOImpl implements AuthorDAO {
             if (author.login(email, password)) {
                 System.out.println("Login Success: " + email + " - " + password);
                 return author;
-            } else {
-                System.out.println("Login Failure: " + email + " - " + password);
             }
         }
-
+        System.out.println("Login Failure: " + email + " - " + password);
         return null;
     }
 
