@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://rerun.com"
+    targetNamespace="http://rerun.com"
+    elementFormDefault="qualified">
+
+    <xs:simpleType name="email">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="authors">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="email" type="email" />
+                            <xs:element name="password" type="xs:string" />
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="biography" type="xs:string" />
+                            <xs:element name="birth" type="xs:dateTime" />
+                        </xs:all>
+                        <xs:attribute name="id" type="xs:positiveInteger" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
