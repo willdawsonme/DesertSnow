@@ -8,6 +8,7 @@
         <c:otherwise>
             <article>
                 <h1><a href="${pageContext.servletContext.contextPath}/article?id=${article.id}">${article.title}</a></h1>
+                <p class="excerpt">${article.preview}</p>
                 <p>${article.content}</p>
                 <span class="meta">Published in <strong>${article.category}</strong> on <strong><fmt:formatDate type="date" dateStyle="long"value="${article.publishedDate}" /></strong></span>
                 <div class="meta-block">

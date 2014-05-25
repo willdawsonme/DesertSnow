@@ -55,7 +55,7 @@ public class Article implements Serializable {
         return preview;
     }
 
-    public void getPreview(String preview) {
+    public void setPreview(String preview) {
         this.preview = preview;
     }
 

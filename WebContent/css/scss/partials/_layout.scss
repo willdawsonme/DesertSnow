@@ -116,6 +116,12 @@ section {
 article {
     @extend %clearfix;
 
+    .excerpt {
+        font-size: 1.5em;
+        margin: 0 0 0.5em;
+        line-height: 1.5;
+    }
+
     p:last-child {
         margin-bottom: 0;
     }
@@ -125,8 +131,9 @@ article {
     border-bottom: 1px solid #eee;
     padding-bottom: $padding;
     margin-bottom: $padding;
+
     .excerpt {
-        margin-bottom: 0;
+        margin-bottom: 1em;
     }
 
     &:last-child {

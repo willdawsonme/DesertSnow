@@ -37,6 +37,8 @@ public class ArticleNewAction implements Action {
 
         if (!paramSet("title"))
             errors.put("title", "Title cannot be left blank.");
+        if (!paramSet("preview"))
+            errors.put("preview", "Preview cannot be left blank.");
         if (!paramSet("content"))
             errors.put("content", "Content cannot be left blank.");
         if (!paramSet("category"))
