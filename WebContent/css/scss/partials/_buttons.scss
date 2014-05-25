@@ -2,7 +2,7 @@
    ========================================================================= */
 .btn {
     @include font-stack;
-    border-radius: $btn-br;
+    border-radius: $br;
     background: none;
     border: 1px solid $dark-grey;
     color: $dark-grey;

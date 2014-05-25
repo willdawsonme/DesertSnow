@@ -551,7 +551,7 @@ textarea {
   width: 100%;
   padding: 1.0em 1.0em;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   outline: none;
   color: inherit; }
   input[type=text]:focus,
@@ -620,7 +620,7 @@ input[type=radio] {
   .notification.empty {
     text-align: center;
     border: 1px dashed #ccc; }
-  .notification p {
+  .notification p:first-child {
     margin-top: 0; }
   .notification p:last-child {
     margin-bottom: 0; }

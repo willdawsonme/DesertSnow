@@ -2,7 +2,9 @@
     <h1>Login</h1>
     <form action="login" method="post">
         <c:if test="${!empty error}">
-            <p class="reason">${error}</p>
+            <div class="notification error">
+                <p>${error}</p>
+            </div>
         </c:if>
         <div class="form-group">
             <input type="email" name="email" placeholder="Email" value="${param['email']}"/>
