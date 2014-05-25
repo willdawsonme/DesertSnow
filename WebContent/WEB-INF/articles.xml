@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<articles>
+<articles xmlns="http://rerun.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://rerun.com schema/articles.xsd">
   <article id="1">
     <author id="1"/>
     <title>The Loneliest Human in the Universe</title>

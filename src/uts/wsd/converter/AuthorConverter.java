@@ -17,7 +17,7 @@ public class AuthorConverter implements Converter {
         private ServletContext servletContext;
 
         public AuthorConverter(ServletContext servletContext) {
-                this.servletContext = servletContext;
+            this.servletContext = servletContext;
         }
 
         public boolean canConvert(Class clazz) {

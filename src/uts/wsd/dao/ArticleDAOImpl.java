@@ -4,6 +4,7 @@ import uts.wsd.model.Article;
 import uts.wsd.model.Author;
 
 import uts.wsd.converter.AuthorConverter;
+import uts.wsd.converter.SchemaConverter;
 
 import java.util.LinkedList;
 import java.util.Collections;
@@ -33,6 +34,7 @@ public class ArticleDAOImpl implements ArticleDAO {
         xStream.alias("articles", LinkedList.class);
         xStream.alias("article", Article.class);
         xStream.useAttributeFor(Article.class, "id");
+        xStream.registerConverter(new SchemaConverter(xStream.getMapper()));
         xStream.registerConverter(new AuthorConverter(servletContext));
         xStream.registerConverter(new DateConverter("yyyy-MM-dd'T'HH:mm:ssXXX", null));
     }

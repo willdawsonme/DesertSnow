@@ -2,6 +2,8 @@ package uts.wsd.dao;
 
 import uts.wsd.model.Author;
 
+import uts.wsd.converter.SchemaConverter;
+
 import java.util.LinkedList;
 
 import java.io.FileReader;
@@ -28,6 +30,7 @@ public class AuthorDAOImpl implements AuthorDAO {
         xStream.alias("authors", LinkedList.class);
         xStream.alias("author", Author.class);
         xStream.useAttributeFor(Author.class, "id");
+        xStream.registerConverter(new SchemaConverter(xStream.getMapper()));
         xStream.registerConverter(new DateConverter("yyyy-MM-dd'T'HH:mm:ssXXX", null));
     }
 
