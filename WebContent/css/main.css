@@ -16,12 +16,12 @@
    ========================================================================= */
 /* Rem Sizing (http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin)
    ========================================================================= */
-.notification:before, header:before, section:before, article:before, footer:before, .notification:after, header:after, section:after, article:after, footer:after {
+.notification:before, header:before, section:before, article:before, footer:before, footer ul.footer-nav:before, .notification:after, header:after, section:after, article:after, footer:after, footer ul.footer-nav:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden; }
-.notification:after, header:after, section:after, article:after, footer:after {
+.notification:after, header:after, section:after, article:after, footer:after, footer ul.footer-nav:after {
   clear: both; }
 
 /* =========================================================================   
@@ -304,7 +304,7 @@ html {
   font-size: 18px; }
 
 body {
-  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   line-height: 1.7;
   color: #777; }
@@ -460,12 +460,12 @@ img {
   top: -9999px;
   left: -9999px; }
 
-.notification:before, header:before, section:before, article:before, footer:before, .notification:after, header:after, section:after, article:after, footer:after {
+.notification:before, header:before, section:before, article:before, footer:before, footer ul.footer-nav:before, .notification:after, header:after, section:after, article:after, footer:after, footer ul.footer-nav:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden; }
-.notification:after, header:after, section:after, article:after, footer:after {
+.notification:after, header:after, section:after, article:after, footer:after, footer ul.footer-nav:after {
   clear: both; }
 
 img,
@@ -478,7 +478,7 @@ object {
 /* Default Button
    ========================================================================= */
 .btn, .btn-primary, .btn-light, .btn-link {
-  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   border-radius: 5px;
   background: none;
@@ -546,7 +546,7 @@ input[type=number],
 input[type=search],
 input[type=radio],
 textarea {
-  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   width: 100%;
   padding: 1.0em 1.0em;
@@ -2201,6 +2201,10 @@ header {
   float: right;
   height: 4rem;
   font-size: 0.85rem; }
+  @media (max-width: 50em) {
+    .user-actions {
+      height: 3rem;
+      margin: 1rem 0 0; } }
   .user-actions .user-toggle {
     display: inline-block;
     position: relative; }
@@ -2235,15 +2239,18 @@ header {
       .user-actions .dropdown a:hover {
         background: rgba(255, 255, 255, 0.25); }
   .user-actions .btn, .user-actions .btn-primary, .user-actions .btn-light, .user-actions .btn-link {
+    float: right;
     margin: 0.5rem 0 0 0;
     padding: 0 1rem;
     line-height: 3rem;
-    height: 3rem;
-    float: right; }
+    height: 3rem; }
+    @media (max-width: 50em) {
+      .user-actions .btn, .user-actions .btn-primary, .user-actions .btn-light, .user-actions .btn-link {
+        height: 2rem;
+        line-height: 2rem; } }
     .user-actions .btn.write, .user-actions .write.btn-primary, .user-actions .write.btn-light, .user-actions .write.btn-link {
       background: white;
-      color: #5ab894;
-      margin-left: 1rem; }
+      color: #5ab894; }
     .user-actions .btn.user, .user-actions .user.btn-primary, .user-actions .user.btn-light, .user-actions .user.btn-link {
       border: none; }
     .user-actions .btn [class^="icon-"], .user-actions .btn-primary [class^="icon-"], .user-actions .btn-light [class^="icon-"], .user-actions .btn-link [class^="icon-"] {
@@ -2305,6 +2312,10 @@ footer {
     margin: 0;
     width: 20%;
     float: left; }
+    @media (max-width: 50em) {
+      footer ul.footer-nav {
+        width: 33.333%;
+        margin: 0 0 2em; } }
     footer ul.footer-nav li {
       font-weight: 600; }
     footer ul.footer-nav a {
@@ -2312,6 +2323,10 @@ footer {
       color: inherit; }
   footer .copyright {
     float: right; }
+    @media (max-width: 50em) {
+      footer .copyright {
+        float: none;
+        text-align: center; } }
 
 /* IE 6, 7, 8
    ========================================================================= */

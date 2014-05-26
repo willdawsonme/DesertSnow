@@ -7,6 +7,17 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/main.css" />
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="//use.typekit.net/mls6fqc.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <c:choose>
+            <c:when test="${empty pageTitle}">
+                <title>Rerun</title>
+            </c:when>
+            <c:otherwise>
+                <title>Rerun | ${request.pageTitle}</title>
+            </c:otherwise>
+        </c:choose>
     </head>
     <body>
         <h1 class="page-title">Rerun</h1>

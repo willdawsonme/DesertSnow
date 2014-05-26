@@ -40,6 +40,12 @@ header {
     height: 4rem;
     font-size: 0.85rem;
 
+    @include breakpoint(mama-bear) {
+        height: 3rem;
+        margin: 1rem 0 0;
+    }
+     
+
     .user-toggle {
         display: inline-block;
         position: relative;
@@ -86,16 +92,20 @@ header {
     }
 
     .btn {
+        float: right;
         margin: 0.5rem 0 0 0;
         padding: 0 1rem;
         line-height: 3rem;
         height: 3rem;
-        float: right;
+
+        @include breakpoint(mama-bear) {
+            height: 2rem;
+            line-height: 2rem;
+        }
 
         &.write {
             background: white;
             color: $primary-color;
-            margin-left: 1rem;
         }
 
         &.user {
@@ -187,12 +197,19 @@ footer {
     background: #eee;
 
     ul.footer-nav {
+        @extend %clearfix;
         list-style: none;
         padding: 0;
         margin: 0;
 
         width: 20%;
         float: left;
+
+        @include breakpoint(mama-bear) {
+            width: 33.333%;
+            margin: 0 0 2em;
+        }
+         
 
         li {
             font-weight: 600;
@@ -206,5 +223,11 @@ footer {
 
     .copyright {
         float: right;
+
+        @include breakpoint(mama-bear) {
+            float: none;
+            text-align: center;
+        }
+         
     }
 }

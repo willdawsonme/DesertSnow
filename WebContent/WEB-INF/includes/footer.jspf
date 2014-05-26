@@ -23,7 +23,7 @@
                 </ul>
                 <ul class="footer-nav">
                     <li>Web Services</li>
-                    <li><a href="${pageContext.servletContext.contextPath}/rest">REST</a></li>
+                    <li><a href="${pageContext.servletContext.contextPath}/rest/articles">REST</a></li>
                     <li><a href="${pageContext.servletContext.contextPath}/soap">SOAP</a></li>
                 </ul>
                 <div class="copyright">
