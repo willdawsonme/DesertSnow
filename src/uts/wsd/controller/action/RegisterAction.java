@@ -30,10 +30,10 @@ public class RegisterAction implements Action {
 
             request.getSession().setAttribute("user", author);
             return "account";
-        } else {
-            request.setAttribute("errors", errors);
-            return "register";
-        }
+        } 
+
+        request.setAttribute("errors", errors);
+        return "register";
     }
 
     private HashMap<String, String> validate() {
@@ -41,6 +41,15 @@ public class RegisterAction implements Action {
 
         if (!paramSet("email"))
             errors.put("email", "Email cannot be left blank.");
+        else {
+            try {
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
+                dateFormatter.parse(param("birth"));
+            } catch (java.text.ParseException e) {
+                errors.put("birth", "Date of Birth must be in the correct format.");
+            }
+        }
+
         if (!paramSet("password"))
             errors.put("password", "Password cannot be left blank.");
         if (!paramSet("name"))
