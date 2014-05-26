@@ -28,8 +28,9 @@ public class LoginFilter implements Filter {
             switch (requestString) {
                 case "GET/account"       :
                 case "GET/article/delete":
+                case "GET/article/new"  :
                 case "POST/article/new"  :
-                    httpResponse.sendRedirect("login");
+                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
                     return;
             }
         } else {
@@ -39,7 +40,7 @@ public class LoginFilter implements Filter {
                 case "POST/login"    :
                 case "GET/register"  :
                 case "POST/register" :
-                    httpResponse.sendRedirect("account");
+                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/account");
                     return;
             }
         }
