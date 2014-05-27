@@ -71,7 +71,7 @@ public class Article implements Serializable {
         return category;
     }
 
-    public void setCategory() {
+    public void setCategory(String category) {
         this.category = category;
     }
 

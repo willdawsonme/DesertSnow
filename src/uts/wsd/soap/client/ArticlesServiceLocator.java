@@ -9,7 +9,12 @@ package uts.wsd.soap.client;
 
 public class ArticlesServiceLocator extends org.apache.axis.client.Service implements uts.wsd.soap.client.ArticlesService {
 
-    public ArticlesServiceLocator() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2510776303360563033L;
+
+	public ArticlesServiceLocator() {
     }
 
 

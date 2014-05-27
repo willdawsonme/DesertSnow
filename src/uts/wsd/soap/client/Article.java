@@ -8,7 +8,12 @@
 package uts.wsd.soap.client;
 
 public class Article  implements java.io.Serializable {
-    private uts.wsd.soap.client.Author author;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7643949427664155205L;
+
+	private uts.wsd.soap.client.Author author;
 
     private java.lang.String content;
 

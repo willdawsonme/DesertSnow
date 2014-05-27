@@ -11,8 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import java.text.ParseException;
-
 import javax.servlet.ServletContext;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;

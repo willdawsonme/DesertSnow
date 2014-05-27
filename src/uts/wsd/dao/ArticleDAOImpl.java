@@ -1,8 +1,6 @@
 package uts.wsd.dao;
 
 import uts.wsd.model.Article;
-import uts.wsd.model.Author;
-
 import uts.wsd.converter.AuthorConverter;
 import uts.wsd.converter.SchemaConverter;
 

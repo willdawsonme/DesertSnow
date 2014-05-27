@@ -5,9 +5,6 @@ import uts.wsd.model.Author;
 
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
-import uts.wsd.dao.AuthorDAO;
-import uts.wsd.dao.AuthorDAOImpl;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

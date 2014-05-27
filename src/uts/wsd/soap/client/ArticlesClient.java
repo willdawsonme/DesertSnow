@@ -7,6 +7,7 @@ import javax.xml.rpc.ServiceException;
 
 public class ArticlesClient {
 	private static Articles articleSoap;
+	private static Scanner in = new Scanner(System.in);
 	
 	public static void main(String[] args) throws ServiceException, RemoteException {
 		ArticlesServiceLocator locator = new ArticlesServiceLocator();
@@ -44,13 +45,11 @@ public class ArticlesClient {
 	}
 	
 	private static String readCommand() {
-		Scanner in = new Scanner(System.in);
 		System.out.print("Command: ");
 		return in.nextLine();
 	}
 	
 	private static int readId() {
-		Scanner in = new Scanner(System.in);
 		System.out.print("ID: ");
 		return in.nextInt();
 	}
