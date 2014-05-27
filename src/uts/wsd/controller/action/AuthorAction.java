@@ -60,6 +60,7 @@ public class AuthorAction implements Action {
         XStream xStream = new XStream(new DomDriver());
         xStream.alias("author", Author.class);
         xStream.useAttributeFor(Author.class, "id");
+        xStream.omitField(Author.class, "password");
         xStream.registerConverter(new DateConverter("d MMM Y", null));
         return xStream.toXML(author);
     }

@@ -53,8 +53,10 @@ public class ArticleAction implements Action {
     private String articleXml(Article article) {
         XStream xStream = new XStream(new DomDriver());
         xStream.alias("article", Article.class);
+        xStream.alias("author", Author.class);
         xStream.useAttributeFor(Article.class, "id");
         xStream.useAttributeFor(Author.class, "id");
+        xStream.omitField(Author.class, "password");
         xStream.registerConverter(new DateConverter("d MMM Y", null));
         return xStream.toXML(article);
     }

@@ -43,6 +43,7 @@ public class IndexAction implements Action {
         xStream.alias("article", Article.class);
         xStream.useAttributeFor(Article.class, "id");
         xStream.useAttributeFor(Author.class, "id");
+        xStream.omitField(Author.class, "password");
         xStream.registerConverter(new DateConverter("d MMM Y", null));
         return xStream.toXML(articles);
     }
