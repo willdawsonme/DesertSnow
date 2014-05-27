@@ -22,6 +22,9 @@ public class Author implements Serializable {
         this.birth = birth;
     }
 
+    /* Field Getters & Setters
+       ====================================================================== */
+
     public int getId() {
         return id;
     }
@@ -56,9 +59,5 @@ public class Author implements Serializable {
 
     public void setBirth(Date birth) {
         this.birth = birth;
-    }
-
-    public boolean login(String email, String password) {
-        return (this.email.equals(email) && this.password.equals(password));
     }
 }

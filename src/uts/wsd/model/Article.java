@@ -1,7 +1,7 @@
 package uts.wsd.model;
 
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 
@@ -22,11 +22,12 @@ public class Article implements Serializable {
         this.content = content;
         this.category = category;
         this.visibility = visibility;
-
-        this.publishedDate = new Date();
-        
+        this.publishedDate = new Date(); /* The publishedDate is set to the current time. */
     }
 
+    /* Field Getters & Setters
+       ====================================================================== */
+       
     public int getId() {
         return id;
     }
@@ -85,5 +86,9 @@ public class Article implements Serializable {
 
     public String getVisibility() {
         return visibility;
+    }
+
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
 }

@@ -3,8 +3,6 @@ package uts.wsd.controller.action;
 import uts.wsd.model.Author;
 import uts.wsd.model.Article;
 
-import uts.wsd.dao.AuthorDAO;
-import uts.wsd.dao.AuthorDAOImpl;
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
 
