@@ -1,15 +1,15 @@
 package uts.wsd.controller.action;
 
-import uts.wsd.model.Article;
-import uts.wsd.model.Author;
-
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
+import uts.wsd.model.Article;
+import uts.wsd.model.Author;
+import uts.wsd.model.LoremIpsum;
+
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.util.HashMap;
 
 public class ArticleNewAction implements Action {
     private HttpServletRequest request;
@@ -17,6 +17,12 @@ public class ArticleNewAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         this.request = request;
         HashMap<String, String> errors = validate();
+
+        if (paramSet("lipsum")) {
+            LoremIpsum lipsum = new LoremIpsum();
+            request.setAttribute("lipsum", lipsum.getLipsum());
+            errors.remove("content");
+        }
 
         if (errors.size() == 0) {
             Author author = (Author)request.getSession().getAttribute("user");

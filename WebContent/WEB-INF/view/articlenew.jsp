@@ -10,8 +10,8 @@
             <p class="reason">${errors['preview']}</p>
         </div>
         <div class="form-group${!empty errors['content'] ? ' error' : ''}">
-            <textarea name="content" rows="8" placeholder="Content">${param['content']}</textarea>
-            <a class="btn-primary full small" href="" style="font-size: 0.85em; margin-top: 10px;">Generate Lipsum</a>
+            <textarea name="content" rows="8" placeholder="Content">${!empty lipsum ? lipsum : param['content']}</textarea>
+            <input type="submit" name="lipsum" class="btn-primary full small" style="font-size: 0.85em; margin-top: 10px;" value="Generate Lipsum" />
             <p class="reason">${errors['content']}</p>
         </div>
         <div class="form-group${!empty errors['category'] ? ' error' : ''}">
@@ -24,6 +24,6 @@
             <input type="radio" name="visibility" value="authors">Authors
         </div>
 
-        <input type="submit" value="Post" class="btn-primary" />
+        <input type="submit" name="default" value="Post" class="btn-primary" />
     </form>
 </section>
