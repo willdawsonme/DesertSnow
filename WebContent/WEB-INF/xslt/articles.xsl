@@ -6,7 +6,7 @@
     <xsl:template match="article">
         <div class="article-excerpt">
             <h2><a href="/desertsnow/article?id={@id}"><xsl:apply-templates select="title"/></a></h2>
-            <xsl:apply-templates select="preview"/>
+            <p class="excerpt"><xsl:apply-templates select="preview"/><a href="/desertsnow/article?id={@id}" style="margin-left: 5px;">Read More &#8594;</a></p>
 
             <span class="meta">
                 <xsl:apply-templates select="author"/> in <xsl:apply-templates select="category"/> on <xsl:apply-templates select="publishedDate"/>
@@ -19,7 +19,7 @@
     </xsl:template> 
 
     <xsl:template match="preview">
-        <p class="excerpt"><xsl:value-of select="."/></p>
+        <xsl:value-of select="."/>
     </xsl:template>
 
     <xsl:template match="author">
