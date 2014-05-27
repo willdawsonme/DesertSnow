@@ -27,4 +27,13 @@
     <publishedDate>2014-05-24T16:47:25Z</publishedDate>
     <visibility>public</visibility>
   </article>
+  <article id="4">
+    <author id="1"/>
+    <title>Lorem Ipsum</title>
+    <preview>Cras hendrerit nec eros et convallis. Pellentesque ultrices eros id lobortis malesuada. Nulla ligula lectus, eleifend a porta eget, sagittis id est. Curabitur quis ante ipsum.</preview>
+    <content>Suspendisse sit amet felis eu felis vestibulum consequat vitae eu sapien. Vivamus arcu orci, aliquam ac lorem at, egestas rutrum mi. Phasellus imperdiet massa eget mi dictum, eu lobortis neque congue. Sed augue ligula, tincidunt quis nisl mollis, accumsan molestie nunc. Ut id dolor velit. In id scelerisque est. Phasellus ut iaculis libero. Donec eget neque facilisis, congue ipsum sed, consectetur sem. Nunc iaculis est at purus dignissim vulputate. Praesent blandit ligula quis felis ornare, at fermentum velit interdum. Maecenas non consectetur ligula, in facilisis mauris. Donec commodo pretium dui a commodo. Ut sollicitudin, ligula ac consequat lobortis, tortor eros vulputate nunc, sit amet volutpat felis metus feugiat dolor. Ut imperdiet ultricies suscipit.</content>
+    <category>Lorem Ipsum</category>
+    <publishedDate>2014-05-27T17:10:34Z</publishedDate>
+    <visibility>public</visibility>
+  </article>
 </articles>
