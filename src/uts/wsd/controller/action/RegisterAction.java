@@ -65,6 +65,6 @@ public class RegisterAction implements Action {
     }
 
     private Boolean paramSet(String key) {
-        return (param(key).equals("") ? false : true);
+        return (param(key) == null || param(key).equals("") ? false : true);
     }
 }
