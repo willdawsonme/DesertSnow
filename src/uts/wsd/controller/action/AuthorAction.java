@@ -1,17 +1,20 @@
 package uts.wsd.controller.action;
 
-import uts.wsd.model.Author;
-import uts.wsd.model.Article;
-
-import uts.wsd.dao.AuthorDAO;
-import uts.wsd.dao.AuthorDAOImpl;
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
+import uts.wsd.dao.AuthorDAO;
+import uts.wsd.dao.AuthorDAOImpl;
+import uts.wsd.model.Article;
+import uts.wsd.model.Author;
+
+import java.util.LinkedList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.LinkedList;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.basic.DateConverter;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class AuthorAction implements Action {
     HttpServletRequest request;
@@ -30,7 +33,7 @@ public class AuthorAction implements Action {
             else {
                 LinkedList<Article> articles = visibleArticles(id, user);
 
-                request.setAttribute("author", author);
+                request.setAttribute("author", authorXml(author));
                 request.setAttribute("articles", (articles.size() > 3 ? articles.subList(0, 3) : articles));
             }
         } catch (java.lang.NumberFormatException e) {
@@ -51,5 +54,13 @@ public class AuthorAction implements Action {
                 articles.remove(article);
 
         return articles;
+    }
+
+    private String authorXml(Author author) {
+        XStream xStream = new XStream(new DomDriver());
+        xStream.alias("author", Author.class);
+        xStream.useAttributeFor(Author.class, "id");
+        xStream.registerConverter(new DateConverter("d MMM Y", null));
+        return xStream.toXML(author);
     }
 }

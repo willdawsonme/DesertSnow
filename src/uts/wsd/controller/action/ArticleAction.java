@@ -8,6 +8,10 @@ import uts.wsd.dao.ArticleDAOImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.basic.DateConverter;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 public class ArticleAction implements Action {
     HttpServletRequest request;
 
@@ -22,7 +26,7 @@ public class ArticleAction implements Action {
             if (article == null)
                 request.setAttribute("error", "There is no article with that ID.");
             else
-                request.setAttribute("article", article);
+                request.setAttribute("article", articleXml(article));
         } catch (java.lang.NumberFormatException e) {
             request.setAttribute("error", "You must specify an integer ID to view an article.");
         } catch (Exception e) {
@@ -44,5 +48,14 @@ public class ArticleAction implements Action {
 
     private String param(String key) {
         return request.getParameter(key);
+    }
+
+    private String articleXml(Article article) {
+        XStream xStream = new XStream(new DomDriver());
+        xStream.alias("article", Article.class);
+        xStream.useAttributeFor(Article.class, "id");
+        xStream.useAttributeFor(Author.class, "id");
+        xStream.registerConverter(new DateConverter("d MMM Y", null));
+        return xStream.toXML(article);
     }
 }

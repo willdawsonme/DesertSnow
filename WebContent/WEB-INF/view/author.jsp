@@ -6,14 +6,8 @@
             </div>
         </c:when>
         <c:otherwise>
-            <h1>${author.name}</h1>
-            <p>${author.biography}</p>
-            <div class="meta-block half">
-                <span class="meta-header">Details</span>
-                <p><strong>Born on</strong> <fmt:formatDate type="date" 
-                    dateStyle="long"
-                    value="${author.birth}" />.</p>
-            </div>
+            <c:import url="/WEB-INF/xslt/author.xsl" var="xslt"/>
+            <x:transform xml="${author}" xslt="${xslt}"/>
             <div class="meta-block half">
                 <span class="meta-header">Articles</span>
                 <c:if test="${empty articles}">
