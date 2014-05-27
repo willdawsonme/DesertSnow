@@ -3,14 +3,18 @@ package uts.wsd.converter;
 import uts.wsd.model.Article;
 import uts.wsd.model.Author;
 
-import java.util.LinkedList;
 import java.util.Iterator;
+import java.util.LinkedList;
 
-import com.thoughtworks.xstream.converters.collections.CollectionConverter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
+import com.thoughtworks.xstream.converters.collections.CollectionConverter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.mapper.Mapper;
 
+/**
+ * SchemaConverter
+ * - Used by xStream to output schema information the XMl file
+ */
 public class SchemaConverter extends CollectionConverter {
 
         public SchemaConverter(Mapper mapper) {
@@ -22,6 +26,7 @@ public class SchemaConverter extends CollectionConverter {
             return type.equals(LinkedList.class);
         }
 
+        // Only required when writing data to the file
         @Override
         public void marshal(Object source, HierarchicalStreamWriter writer,
                 MarshallingContext context) {

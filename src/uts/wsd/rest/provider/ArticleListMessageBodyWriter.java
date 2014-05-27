@@ -1,33 +1,37 @@
 package uts.wsd.rest.provider;
 
+import uts.wsd.converter.AuthorConverter;
 import uts.wsd.model.Article;
 import uts.wsd.model.Author;
 
-import uts.wsd.converter.AuthorConverter;
-
+import java.io.IOException;
+import java.io.OutputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
 import java.util.LinkedList;
+
 import javax.ws.rs.Produces;
-import javax.ws.rs.ext.Provider;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.ext.MessageBodyWriter;
+import javax.ws.rs.ext.Provider;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import java.lang.reflect.Type;
-import java.lang.annotation.Annotation;
-
-import java.io.OutputStream;
-import java.io.IOException;
-
+/**
+ * ArticleListMessageBodyWriter
+ * - Provides JAX-RS with a way to output a LinkedList of Articles
+ * - Uses xStream to convert the object to XML
+ */
 @Provider
 @Produces(MediaType.APPLICATION_XML)
 public class ArticleListMessageBodyWriter implements MessageBodyWriter<LinkedList<Article>> {
     private XStream xStream;
 
+    /* Setup xStream */
     public ArticleListMessageBodyWriter() {
         xStream = new XStream(new DomDriver());
         xStream.alias("articles", LinkedList.class);

@@ -1,16 +1,20 @@
 package uts.wsd.controller.action;
 
-import uts.wsd.model.Author;
-import uts.wsd.model.Article;
-
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
+import uts.wsd.model.Article;
+import uts.wsd.model.Author;
+
+import java.util.LinkedList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.LinkedList;
-
+/**
+ * AccountAction
+ * - Executed when the users requests /account
+ * - Returns a list of that users articles.
+ */
 public class AccountAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Author user = (Author)request.getSession().getAttribute("user");

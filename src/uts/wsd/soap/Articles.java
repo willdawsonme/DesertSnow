@@ -1,18 +1,22 @@
 package uts.wsd.soap;
 
-import uts.wsd.model.Article;
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
+import uts.wsd.model.Article;
 
 import java.util.LinkedList;
 
-import javax.servlet.ServletContext;
-import javax.jws.WebService;
+import javax.annotation.Resource;
 import javax.jws.WebMethod;
+import javax.jws.WebService;
+import javax.servlet.ServletContext;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
-import javax.annotation.Resource;
 
+/**
+ * Articles SOAP Service
+ * - A SOAP implementation for listing and deleting articles
+ */
 @WebService
 public class Articles {
     @Resource

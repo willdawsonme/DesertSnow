@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 import javax.xml.rpc.ServiceException;
 
+/**
+ * Articles SOAP Service
+ * - A SOAP implementation for listing and deleting articles
+ */
 public class ArticlesClient {
 	private static Articles articleSoap;
 	private static Scanner in = new Scanner(System.in);
@@ -20,6 +24,9 @@ public class ArticlesClient {
  		}
 	}
 	
+	/**
+	 * Execute the specified command.
+	 */
 	private static void execute(String command) throws RemoteException {
 		switch (command) {
 			case "list": 	list(); break;
@@ -28,6 +35,9 @@ public class ArticlesClient {
 		}
 	}
 	
+	/**
+	 * List all articles.
+	 */
 	private static void list() throws RemoteException {
 		Article[] articles = articleSoap.fetchArticles();
 		if (articles.length > 0) {
@@ -38,17 +48,26 @@ public class ArticlesClient {
 		}
 	}
 	
+	/**
+	 * Delete the specified article.
+	 */
 	private static void delete() throws RemoteException {
 		int id = readId();
 		articleSoap.deleteArticle(id);
 		System.out.println("Deleted article " + id);
 	}
 	
+	/**
+	 * Read the command from the user
+	 */
 	private static String readCommand() {
 		System.out.print("Command: ");
 		return in.nextLine();
 	}
 	
+	/**
+	 * Read the article ID from the user
+	 */
 	private static int readId() {
 		System.out.print("ID: ");
 		return in.nextInt();

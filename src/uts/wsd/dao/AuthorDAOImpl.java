@@ -19,6 +19,11 @@ public class AuthorDAOImpl implements AuthorDAO {
     private LinkedList<Author> authors;
     private XStream xStream;
 
+    /**
+     * AuthorDAOImpl Constructor
+     * - Sets up the filePath based on the servletContext.
+     * - Sets up xStream to read from and write to XML files.
+     */
     public AuthorDAOImpl(ServletContext servletContext) {
         filePath = servletContext.getRealPath("/WEB-INF/authors.xml");
         authors = new LinkedList<Author>();
@@ -27,11 +32,19 @@ public class AuthorDAOImpl implements AuthorDAO {
         xStream.alias("authors", LinkedList.class);
         xStream.alias("author", Author.class);
         xStream.useAttributeFor(Author.class, "id");
+
+        // Register object converters for xStream to use.
         xStream.registerConverter(new SchemaConverter(xStream.getMapper()));
         xStream.registerConverter(new DateConverter("yyyy-MM-dd'T'HH:mm:ssXXX", null));
     }
 
-    // CRUD
+    /* CRUD Methods
+       ====================================================================== */
+    /**
+     * addAuthor(Author author)
+     * - Adds the specified author to the XML file
+     * - Generates a unique ID based on currently stored authors.
+     */
     public void addAuthor(Author author) {
         load();
 
@@ -44,6 +57,10 @@ public class AuthorDAOImpl implements AuthorDAO {
         save();
     }
 
+    /**
+     * findAuthor(int id)
+     * - Returns the author that matches the specified article ID.
+     */
     public Author findAuthor(int id) {
         load();
 
@@ -54,6 +71,10 @@ public class AuthorDAOImpl implements AuthorDAO {
         return null;
     }
 
+    /**
+     * updateAuthor(Author author)
+     * - Finds the existing author with matching ID, and replaces it.
+     */
     public void updateAuthor(Author author) {
         int id = author.getId();
         load();
@@ -65,6 +86,10 @@ public class AuthorDAOImpl implements AuthorDAO {
         save();
     }
 
+    /**
+     * deleteAuthor(Author author)
+     * - Finds the existing author with matching ID, then deletes it.
+     */
     public void deleteAuthor(Author author) {
         int id = author.getId();
         load();
@@ -76,13 +101,26 @@ public class AuthorDAOImpl implements AuthorDAO {
         save();
     }
 
-    // Searching
+
+    /* Methods for Searching
+       ====================================================================== */
+
+    /**
+     * findAll()
+     * - Returns the list of authors.
+     */
     public LinkedList<Author> findAll() {
         load();
         return authors;
     }
 
-    // Other
+    /* Other
+       ====================================================================== */
+
+    /**
+     * login(String email, String password)
+     * - Returns the Author that matches the login.
+     */
     public Author login(String email, String password) {
         load();
         for (Author author : authors) {
@@ -95,15 +133,27 @@ public class AuthorDAOImpl implements AuthorDAO {
         return null;
     }
 
-    // File IO
+
+    /* File IO
+       ====================================================================== */
+
+    /**
+     * load()
+     * - Loads authors into the LinkedList via xStream.
+     */
     private void load() {
         try {
+            // Converts the XML file to a Java Ojbect
             authors = (LinkedList<Author>)xStream.fromXML(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + filePath);
         }
     }
 
+    /**
+     * save()
+     * - Saves the LinkedList to XML via xStream.
+     */
     private void save() {
         try {
             String xmlOutput = xStream.toXML(authors);

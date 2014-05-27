@@ -14,6 +14,11 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+/**
+ * IndexAction
+ * - Executed when the users requests /.
+ * - Returns the articles as an XML string.
+ */
 public class IndexAction implements Action {
     HttpServletRequest request;
 
@@ -27,16 +32,27 @@ public class IndexAction implements Action {
         return "index";
     }
 
+    /**
+     * visibleArticles(Author user)
+     * - Ensures that only articles that the user is allowed to see get returned.
+     */
     private LinkedList<Article> visibleArticles(Author user) {
         ArticleDAO articleDao = new ArticleDAOImpl(request.getSession().getServletContext());
-        LinkedList<Article> articles = articleDao.findAll();
-        for (Article article : articles)
-            if (article.getVisibility().equals("authors") && user == null)
-                articles.remove(article);
+        LinkedList<Article> visible = new LinkedList<Article>();
+        for (Article article : articleDao.findAll()) {
+            // If the user is logged in, add the article.
+            // If they're not logged in, only add the article if it is public.
+            if (user != null || article.getVisibility().equals("public"))
+                visible.add(article);
+        }
 
-        return articles;
+        return visible;
     }
 
+    /**
+     * articlesXml(LinkedList<Article> articles)
+     * - Returns an object as an XML String for XSLT processing.
+     */
     private String articlesXml(LinkedList<Article> articles) {
         XStream xStream = new XStream(new DomDriver());
         xStream.alias("articles", LinkedList.class);

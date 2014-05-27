@@ -3,12 +3,14 @@
   
   <display-name>Desert Snow</display-name>
   
+  <!-- Maps RequestMediator to the applicable controller -->
   <servlet>
     <servlet-name>RequestMediator</servlet-name>
     <servlet-class>uts.wsd.controller.RequestMediator</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   
+  <!-- The following URL patterns are sent to the RequestMediator -->
   <servlet-mapping>
     <servlet-name>RequestMediator</servlet-name>
     <url-pattern>/index</url-pattern>
@@ -22,16 +24,24 @@
     <url-pattern>/author</url-pattern>
   </servlet-mapping>
 
+  <!-- Allows the root url to forward to /index automagically -->
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+
+  <!-- Maps LoginFilter to the applicable controller filter -->
   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>uts.wsd.controller.LoginFilter</filter-class>
   </filter>
 
+  <!-- Any request to RequestMediator will be filtered by LoginFilter -->
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <servlet-name>RequestMediator</servlet-name>
   </filter-mapping>
 
+  <!-- Maps the REST Web Services -->
   <servlet>
     <servlet-name>Jersey REST Web Services</servlet-name>
     <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
@@ -47,12 +57,14 @@
     <url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
 
+  <!-- SOAP Listener -->
   <listener>
     <listener-class>
       com.sun.xml.ws.transport.http.servlet.WSServletContextListener
     </listener-class>
   </listener>
   
+  <!-- Maps the SOAP Web Services -->
   <servlet>
     <servlet-name>SOAP Web Services</servlet-name>
     <servlet-class>
@@ -66,19 +78,13 @@
     <url-pattern>/soap/*</url-pattern>
   </servlet-mapping>
   
+  <!-- Specifies the 404 Page -->
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/view/404.jsp</location>
   </error-page>
   
-  <welcome-file-list>
-    <welcome-file>index</welcome-file>
-  </welcome-file-list>
-  
-  <session-config>
-    <session-timeout>30</session-timeout>
-  </session-config>
-  
+  <!-- Every request to a page in /WEB-INF/view/* will get a header and footer -->
   <jsp-config>
     <jsp-property-group>
       <description>Header and Footer Settings</description>
@@ -87,5 +93,10 @@
       <include-coda>/WEB-INF/includes/footer.jspf</include-coda>
     </jsp-property-group>
   </jsp-config>
+
+  <!-- Session Config -->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 
 </web-app>

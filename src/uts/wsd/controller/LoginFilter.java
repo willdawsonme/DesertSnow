@@ -1,18 +1,21 @@
 package uts.wsd.controller;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Login Filter
+ * - Executed before every request to the Request Mediator
+ * - Checks for authorised and unauthorised requests, and redirects them appropriately.
+ */
 public class LoginFilter implements Filter {
 
     public void init(FilterConfig filterConfig) {

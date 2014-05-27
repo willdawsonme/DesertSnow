@@ -1,17 +1,22 @@
 package uts.wsd.controller.action;
 
-import uts.wsd.model.Author;
 import uts.wsd.dao.AuthorDAO;
 import uts.wsd.dao.AuthorDAOImpl;
+import uts.wsd.model.Author;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.HashMap;
-import java.util.Date;
-import java.util.TimeZone;
-import java.text.SimpleDateFormat;
-
+/**
+ * RegisterAction
+ * - Executed when the users requests /register.
+ * - Handles POST parameters and creates a new Author, or returns errors.
+ */
 public class RegisterAction implements Action {
     private HttpServletRequest request;
 
@@ -36,11 +41,26 @@ public class RegisterAction implements Action {
         return "register";
     }
 
+    /**
+     * validate()
+     * - Populates an key/value errors map for incorrectly set parameters
+     */
     private HashMap<String, String> validate() {
         HashMap<String, String> errors = new HashMap<String, String>();
 
+
         if (!paramSet("email"))
             errors.put("email", "Email cannot be left blank.");
+
+        if (!paramSet("password"))
+            errors.put("password", "Password cannot be left blank.");
+
+        if (!paramSet("name"))
+            errors.put("name", "Name cannot be left blank.");
+
+        /* If the birth parameter is set, we try to parse the birth string. */
+        if (!paramSet("birth"))
+            errors.put("birth", "Date of Birth cannot be left blank.");
         else {
             try {
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -50,20 +70,21 @@ public class RegisterAction implements Action {
             }
         }
 
-        if (!paramSet("password"))
-            errors.put("password", "Password cannot be left blank.");
-        if (!paramSet("name"))
-            errors.put("name", "Name cannot be left blank.");
-        if (!paramSet("birth"))
-            errors.put("birth", "Date of Birth cannot be left blank.");
-
         return errors;
     }
 
+    /**
+     * param(String key)
+     * - Helper to determine the value of a parameter.
+     */
     private String param(String key) {
         return request.getParameter(key);
     }
 
+    /**
+     * paramSet(String key)
+     * - Helper to determine if a parameter is set
+     */
     private Boolean paramSet(String key) {
         return (param(key) == null || param(key).equals("") ? false : true);
     }
