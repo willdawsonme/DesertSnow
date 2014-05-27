@@ -1,8 +1,13 @@
 package uts.wsd.dao;
 
+<<<<<<< Updated upstream
 import uts.wsd.model.Article;
+=======
+>>>>>>> Stashed changes
 import uts.wsd.converter.AuthorConverter;
 import uts.wsd.converter.SchemaConverter;
+import uts.wsd.model.Article;
+import uts.wsd.model.Author;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
