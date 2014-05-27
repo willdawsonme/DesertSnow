@@ -5,16 +5,17 @@
         
     <xsl:template match="article">
         <div class="article-excerpt">
-            <xsl:apply-templates select="title|preview" />
+            <h2><a href="/desertsnow/article?id={@id}"><xsl:apply-templates select="title"/></a></h2>
+            <xsl:apply-templates select="preview"/>
 
             <span class="meta">
-                <xsl:apply-templates select="author"/> in <strong><xsl:value-of select="category"/></strong> on <strong><xsl:value-of select="publishedDate"/></strong>
+                <xsl:apply-templates select="author"/> in <xsl:apply-templates select="category"/> on <xsl:apply-templates select="publishedDate"/>
             </span>
         </div>
     </xsl:template>
 
     <xsl:template match="title">
-        <h2><a><xsl:value-of select="."/></a></h2>
+        <xsl:value-of select="."/>
     </xsl:template> 
 
     <xsl:template match="preview">
@@ -22,6 +23,10 @@
     </xsl:template>
 
     <xsl:template match="author">
-        <i class="icon-thin-male">&#8203;</i><a href="/desertsnow/author?id=@id"><xsl:value-of select="name"/></a>
+        <i class="icon-thin-male">&#8203;</i><a href="/desertsnow/author?id={@id}"><xsl:value-of select="name"/></a>
+    </xsl:template>
+
+    <xsl:template match="category|publishedDate">
+        <strong><xsl:value-of select="."/></strong>
     </xsl:template>
 </xsl:stylesheet>
