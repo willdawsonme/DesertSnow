@@ -15,6 +15,8 @@ import com.sun.jersey.api.client.WebResource;
 /**
  * LoremIpsum
  * - Provides a lipsum string from lipsum.com
+ *
+ * http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
  */
 public class LoremIpsum {
     /**

@@ -2207,7 +2207,8 @@ header {
       margin: 1rem 0 0; } }
   .user-actions .user-toggle {
     display: inline-block;
-    position: relative; }
+    position: relative;
+    margin-right: 1em; }
     .user-actions .user-toggle:hover .dropdown {
       opacity: 1;
       visibility: visible; }
