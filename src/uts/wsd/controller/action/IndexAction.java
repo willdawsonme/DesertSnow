@@ -1,10 +1,7 @@
 package uts.wsd.controller.action;
 
-import uts.wsd.converter.AuthorConverter;
 import uts.wsd.dao.ArticleDAO;
 import uts.wsd.dao.ArticleDAOImpl;
-import uts.wsd.dao.AuthorDAO;
-import uts.wsd.dao.AuthorDAOImpl;
 import uts.wsd.model.Article;
 import uts.wsd.model.Author;
 

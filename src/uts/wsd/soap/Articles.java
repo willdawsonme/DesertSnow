@@ -10,7 +10,6 @@ import javax.servlet.ServletContext;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.xml.ws.WebServiceContext;
-import javax.xml.ws.Endpoint;
 import javax.xml.ws.handler.MessageContext;
 import javax.annotation.Resource;
 

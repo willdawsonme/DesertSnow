@@ -6,8 +6,6 @@ import uts.wsd.model.Author;
 import uts.wsd.converter.AuthorConverter;
 
 import java.util.LinkedList;
-import java.nio.charset.Charset;
-
 import javax.ws.rs.Produces;
 import javax.ws.rs.ext.Provider;
 import javax.ws.rs.core.MediaType;
@@ -20,12 +18,10 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 
 import java.lang.reflect.Type;
-import java.lang.reflect.ParameterizedType;
 import java.lang.annotation.Annotation;
 
 import java.io.OutputStream;
 import java.io.IOException;
-import java.io.DataOutputStream;
 
 @Provider
 @Produces(MediaType.APPLICATION_XML)

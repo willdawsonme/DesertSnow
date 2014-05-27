@@ -1,9 +1,8 @@
 package uts.wsd.dao;
 
+import uts.wsd.model.Article;
 import uts.wsd.converter.AuthorConverter;
 import uts.wsd.converter.SchemaConverter;
-import uts.wsd.model.Article;
-import uts.wsd.model.Author;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

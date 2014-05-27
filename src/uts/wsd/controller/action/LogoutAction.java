@@ -1,10 +1,5 @@
 package uts.wsd.controller.action;
 
-import uts.wsd.model.Author;
-
-import uts.wsd.dao.AuthorDAO;
-import uts.wsd.dao.AuthorDAOImpl;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

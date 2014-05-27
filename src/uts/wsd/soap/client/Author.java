@@ -8,7 +8,12 @@
 package uts.wsd.soap.client;
 
 public class Author  implements java.io.Serializable {
-    private java.lang.String biography;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -9125219330680358987L;
+
+	private java.lang.String biography;
 
     private java.util.Calendar birth;
 
