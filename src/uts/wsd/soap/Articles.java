@@ -23,7 +23,7 @@ public class Articles {
     private WebServiceContext context;
 
     @WebMethod
-    public LinkedList<Article> getArticles() {
+    public LinkedList<Article> fetchArticles() {
         ServletContext servletContext = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
         ArticleDAO articleDao = new ArticleDAOImpl(servletContext);
         

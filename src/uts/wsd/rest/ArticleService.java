@@ -40,7 +40,7 @@ public class ArticleService {
             articles = filterCategory(articles, category);
         
         if (!startDate.equals(""))
-            if (parseDate(endDate) != null)
+            if (parseDate(startDate) != null)
                 articles = filterStartDate(articles, parseDate(startDate));
             else
                 errors.put("startDate", "Must be in the format yyyy-MM-dd'T'HH:mm:ss");
@@ -107,7 +107,7 @@ public class ArticleService {
         try {
             SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
             dateFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-            return dateFormatter.parse(date.replace(' ', '+'));
+            return dateFormatter.parse(date);
         } catch (java.text.ParseException e) {
             System.out.println(e.getMessage());
             return null;

@@ -9,12 +9,7 @@ package uts.wsd.soap.client;
 
 public class ArticlesServiceLocator extends org.apache.axis.client.Service implements uts.wsd.soap.client.ArticlesService {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 2510776303360563033L;
-
-	public ArticlesServiceLocator() {
+    public ArticlesServiceLocator() {
     }
 
 
@@ -27,7 +22,7 @@ public class ArticlesServiceLocator extends org.apache.axis.client.Service imple
     }
 
     // Use to get a proxy class for ArticlesPort
-    private java.lang.String ArticlesPort_address = "http://localhost:8080/DesertSnow/soap/articles";
+    private java.lang.String ArticlesPort_address = "http://localhost:8080/desertsnow/soap/articles";
 
     public java.lang.String getArticlesPortAddress() {
         return ArticlesPort_address;

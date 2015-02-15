@@ -5,7 +5,7 @@
         
     <xsl:template match="article">
         <article>
-            <h1><a href="/desertsnow/article?id={@id}"><xsl:apply-templates select="title"/></a></h1>
+            <h1><a href="article?id={@id}"><xsl:apply-templates select="title"/></a></h1>
             <xsl:apply-templates select="preview"/>
             <xsl:apply-templates select="content"/>
 
@@ -38,7 +38,7 @@
             <span class="meta-header">Written By</span>
             <h3><xsl:value-of select="name" /></h3>
             <p><xsl:value-of select="biography" /></p>
-            <a class="btn-primary btn-small" href="/desertsnow/author?id={@id}">See Profile</a>
+            <a class="btn-primary btn-small" href="author?id={@id}">See Profile</a>
         </div>
     </xsl:template>
 </xsl:stylesheet>

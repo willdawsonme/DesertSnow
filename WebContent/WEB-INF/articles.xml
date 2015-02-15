@@ -27,4 +27,13 @@
     <publishedDate>2014-05-24T16:47:25Z</publishedDate>
     <visibility>public</visibility>
   </article>
+  <article id="4">
+    <author id="4"/>
+    <title>Minqi&apos;s Article</title>
+    <preview>Preview</preview>
+    <content>Content</content>
+    <category>Minqi</category>
+    <publishedDate>2014-05-28T02:38:23Z</publishedDate>
+    <visibility>authors</visibility>
+  </article>
 </articles>

@@ -8,12 +8,9 @@
 package uts.wsd.soap.client;
 
 public class Article  implements java.io.Serializable {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = -7643949427664155205L;
+    private uts.wsd.soap.client.Author author;
 
-	private uts.wsd.soap.client.Author author;
+    private java.lang.String category;
 
     private java.lang.String content;
 
@@ -25,22 +22,28 @@ public class Article  implements java.io.Serializable {
 
     private java.lang.String title;
 
+    private java.lang.String visibility;
+
     public Article() {
     }
 
     public Article(
            uts.wsd.soap.client.Author author,
+           java.lang.String category,
            java.lang.String content,
            int id,
            java.lang.String preview,
            java.util.Calendar publishedDate,
-           java.lang.String title) {
+           java.lang.String title,
+           java.lang.String visibility) {
            this.author = author;
+           this.category = category;
            this.content = content;
            this.id = id;
            this.preview = preview;
            this.publishedDate = publishedDate;
            this.title = title;
+           this.visibility = visibility;
     }
 
 
@@ -61,6 +64,26 @@ public class Article  implements java.io.Serializable {
      */
     public void setAuthor(uts.wsd.soap.client.Author author) {
         this.author = author;
+    }
+
+
+    /**
+     * Gets the category value for this Article.
+     * 
+     * @return category
+     */
+    public java.lang.String getCategory() {
+        return category;
+    }
+
+
+    /**
+     * Sets the category value for this Article.
+     * 
+     * @param category
+     */
+    public void setCategory(java.lang.String category) {
+        this.category = category;
     }
 
 
@@ -163,6 +186,26 @@ public class Article  implements java.io.Serializable {
         this.title = title;
     }
 
+
+    /**
+     * Gets the visibility value for this Article.
+     * 
+     * @return visibility
+     */
+    public java.lang.String getVisibility() {
+        return visibility;
+    }
+
+
+    /**
+     * Sets the visibility value for this Article.
+     * 
+     * @param visibility
+     */
+    public void setVisibility(java.lang.String visibility) {
+        this.visibility = visibility;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Article)) return false;
@@ -178,6 +221,9 @@ public class Article  implements java.io.Serializable {
             ((this.author==null && other.getAuthor()==null) || 
              (this.author!=null &&
               this.author.equals(other.getAuthor()))) &&
+            ((this.category==null && other.getCategory()==null) || 
+             (this.category!=null &&
+              this.category.equals(other.getCategory()))) &&
             ((this.content==null && other.getContent()==null) || 
              (this.content!=null &&
               this.content.equals(other.getContent()))) &&
@@ -190,7 +236,10 @@ public class Article  implements java.io.Serializable {
               this.publishedDate.equals(other.getPublishedDate()))) &&
             ((this.title==null && other.getTitle()==null) || 
              (this.title!=null &&
-              this.title.equals(other.getTitle())));
+              this.title.equals(other.getTitle()))) &&
+            ((this.visibility==null && other.getVisibility()==null) || 
+             (this.visibility!=null &&
+              this.visibility.equals(other.getVisibility())));
         __equalsCalc = null;
         return _equals;
     }
@@ -205,6 +254,9 @@ public class Article  implements java.io.Serializable {
         if (getAuthor() != null) {
             _hashCode += getAuthor().hashCode();
         }
+        if (getCategory() != null) {
+            _hashCode += getCategory().hashCode();
+        }
         if (getContent() != null) {
             _hashCode += getContent().hashCode();
         }
@@ -217,6 +269,9 @@ public class Article  implements java.io.Serializable {
         }
         if (getTitle() != null) {
             _hashCode += getTitle().hashCode();
+        }
+        if (getVisibility() != null) {
+            _hashCode += getVisibility().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -232,6 +287,13 @@ public class Article  implements java.io.Serializable {
         elemField.setFieldName("author");
         elemField.setXmlName(new javax.xml.namespace.QName("", "author"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://soap.wsd.uts/", "author"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("category");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "category"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
@@ -265,6 +327,13 @@ public class Article  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("title");
         elemField.setXmlName(new javax.xml.namespace.QName("", "title"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("visibility");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "visibility"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

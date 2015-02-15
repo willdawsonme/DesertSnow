@@ -21,4 +21,11 @@
     <biography>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</biography>
     <birth>1993-10-15T00:00:00Z</birth>
   </author>
+  <author id="4">
+    <email>minqi@rerun.com</email>
+    <password>password</password>
+    <name>Minqi Li</name>
+    <biography>Biography</biography>
+    <birth>1990-02-22T00:00:00Z</birth>
+  </author>
 </authors>
